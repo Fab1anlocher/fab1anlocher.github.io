@@ -3,24 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontaktformular</title>
+    <title>Kontakt</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 120px);
+            padding: 20px;
+        }
+        .contact {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 300px;
+            transition: transform 0.3s;
+        }
+        .contact:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            margin: 10px 0 5px;
+            display: block;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border 0.3s;
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+        input:focus, textarea:focus {
+            border: 1px solid #333;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* Animation for thank you message */
+        .thank-you-animation {
+            display: none;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Kontakt</h1>
-    <form id="contactForm" action="https://formsubmit.co/fabianlocher55@gmail.com" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <label for="email">E-Mail:</label>
-        <input type="email" id="email" name="email" required>
+    <main>
+        <section class="contact">
+            <h1>Kontakt</h1>
+            <form id="contactForm" action="https://formspree.io/f/mqazrgdw" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required maxlength="60">
 
-        <label for="message">Nachricht:</label>
-        <textarea id="message" name="message" required></textarea>
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required>
 
-        <button type="submit">Absenden</button>
-    </form>
+                <label for="message">Nachricht:</label>
+                <textarea id="message" name="message" required maxlength="400"></textarea>
 
-    <script src="scripts/contact.js"></script>
+                <button type="submit">Absenden</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Fabian Locher</p>
+    </footer>
+
+    <!-- Modal for Success Message -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Danke! 🎉</h2>
+            <p class="thank-you-animation">Ihre Nachricht wurde erfolgreich gesendet.</p>
+        </div>
+    </div>
+
+    <script>
+        // Show modal on successful submission
+        const contactForm = document.getElementById('contactForm');
+        const modal = document.getElementById('myModal');
+        const closeModal = document.getElementById('closeModal');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(this);
+
+            fetch('https://formspree.io/f/mqazrgdw', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json' // Ensure we expect JSON in the response
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    modal.style.display = "block"; // Show the modal
+                    this.reset(); // Reset the form
+                    document.querySelector('.thank-you-animation').style.display = 'block'; // Show the thank you message
+                } else {
+                    alert('Fehler beim Senden der Nachricht. Bitte versuche es erneut.');
+                }
+            })
+            .catch(error => {
+                console.error('Fehler:', error);
+                alert('Ein unerwarteter Fehler ist aufgetreten.');
+            });
+        });
+
+        // Close the modal
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>

@@ -7,6 +7,32 @@
     <title>Über Mich</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .progress-container {
+            width: 100%;
+            background: #f3f3f3;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 20px;
+            background: #4caf50;
+            width: 0;
+            transition: width 1s;
+        }
+
+        .skill {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-label {
+            width: 200px;
+        }
+    </style>
 </head>
 
 <body>
@@ -61,22 +87,58 @@
 
         <section class="hard-skills">
             <h2>Hard Skills</h2>
-            <ul>
-                <li><strong>MS Office:</strong> Sehr gute Kenntnisse</li>
-                <li><strong>SAP:</strong> Gute Kenntnisse</li>
-                <li><strong>Python:</strong> Grundlegende Kenntnisse</li>
-                <li><strong>SQL:</strong> Grundlegende Kenntnisse</li>
-                <li><strong>R:</strong> Basiskenntnisse</li>
-            </ul>
+            <div class="skill">
+                <div class="skill-label">MS Office:</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 90%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="skill-label">SAP:</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 70%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="skill-label">Python:</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 50%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="skill-label">SQL:</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 40%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="skill-label">R:</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 30%;"></div>
+                </div>
+            </div>
         </section>
 
         <section class="languages">
             <h2>Sprachen</h2>
-            <ul>
-                <li><strong>Deutsch:</strong> C2 (Muttersprache)</li>
-                <li><strong>Englisch:</strong> B2</li>
-                <li><strong>Französisch:</strong> B1/B2</li>
-            </ul>
+            <div class="skill">
+                <div class="skill-label">Deutsch:</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 100%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="skill-label">Englisch:</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 75%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="skill-label">Französisch:</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 60%;"></div>
+                </div>
+            </div>
         </section>
 
         <section class="hobbies">

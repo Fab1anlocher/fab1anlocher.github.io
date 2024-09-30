@@ -1,36 +1,72 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timeline</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="timeline.html" class="active">Timeline</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <section class="countdown">
+            <h2>Countdown bis zu meinem Studienabschluss!</h2>
+            <div id="countdown" class="countdown-timer"></div>
+        </section>
+
         <section class="timeline">
-            <h1>Timeline</h1>
-            <ul>
-                <li>2020 - Account Manager bei Radio neo1</li>
-                <li>2018 - Studium der Wirtschaftsinformatik begonnen</li>
-                <!-- Füge hier weitere Stationen hinzu -->
-            </ul>
+            <h2>Meine Timeline</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="arrow"></div>
+                    <div class="circle"></div>
+                    <div class="timeline-content">
+                        <h3>Berner Fachhochschule BFH</h3>
+                        <p>Bachelor of Science (BSc), Wirtschaftsinformatik (August 2022 - Juli 2026)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="arrow"></div>
+                    <div class="circle"></div>
+                    <div class="timeline-content">
+                        <h3>Radio neo1</h3>
+                        <p>Account Manager (Januar 2022 - Present)</p>
+                        <p><strong>Langnau im Emmental, Bern, Schweiz</strong></p>
+                        <p>3 Jahre 4 Monate</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="arrow"></div>
+                    <div class="circle"></div>
+                    <div class="timeline-content">
+                        <h3>Nestlé</h3>
+                        <p>HR-Assistant (August 2020 - Dezember 2020)</p>
+                        <p><strong>Konolfingen</strong></p>
+                    </div>
+                </div>
+                <!-- Weitere Timeline-Einträge hier -->
+            </div>
         </section>
     </main>
 
     <footer>
         <p>© 2024 Fabian Locher</p>
     </footer>
+
+    <script src="scripts/timer.js"></script>
 </body>
+
 </html>
