@@ -1,12 +1,17 @@
 <template>
+
+<main>
+  <router-view></router-view> <!-- Hier wird der Inhalt der Routen geladen -->
+</main>
+
   <div id="app">
     <header>
       <nav>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/timeline">Timeline</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/about">About</router-link></li>
+          <li><router-link to="/timeline">Timeline</router-link></li>
+          <li><router-link to="/contact">Contact</router-link></li>
         </ul>
       </nav>
     </header>
@@ -16,7 +21,7 @@
         <div class="content-wrapper">
           <h1>Fabian Locher</h1>
           <p>Account Manager & Wirtschaftsinformatik Student</p>
-          <a href="/contact" class="cta">Kontaktieren Sie mich</a>
+          <router-link to="/contact" class="cta">Kontaktieren Sie mich</router-link>
         </div>
       </section>
     </main>
@@ -62,14 +67,16 @@ nav ul li {
   margin: 0 15px;
 }
 
-nav ul li a {
+nav ul li a,
+nav ul li router-link {
   color: white;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li router-link:hover {
   color: #f4d03f;
 }
 
@@ -104,7 +111,7 @@ footer {
   color: white;
 }
 
-/* Wiederverwendete Animation */
+/* Weitere Styles */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -114,7 +121,6 @@ footer {
   }
 }
 
-/* Countdown Styles */
 .countdown {
   text-align: center;
   margin: 20px 0;
