@@ -1,17 +1,5 @@
 <template>
-  <div class="timeline-page">
-    <header>
-      <nav>
-        <ul>
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/about">About</router-link></li>
-          <li>
-            <router-link to="/timeline" class="active">Timeline</router-link>
-          </li>
-          <li><router-link to="/contact">Contact</router-link></li>
-        </ul>
-      </nav>
-    </header>
+
 
     <main>
       <section class="countdown">
@@ -60,7 +48,6 @@
     <footer>
       <p>© 2024 Fabian Locher</p>
     </footer>
-  </div>
 </template>
 
 <script>

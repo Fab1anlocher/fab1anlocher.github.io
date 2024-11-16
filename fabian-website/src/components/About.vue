@@ -1,17 +1,12 @@
 <template>
   <div class="about">
-    <header>
-      <nav>
-        <ul>
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/about" class="active">About</router-link></li>
-          <li><router-link to="/timeline">Timeline</router-link></li>
-          <li><router-link to="/contact">Contact</router-link></li>
-        </ul>
-      </nav>
-    </header>
+    <nav class="navbar">
+      <ul>
 
+      </ul>
+    </nav>
     <main>
+      <!-- Der restliche Inhalt bleibt unverändert -->
       <section class="intro">
         <h1>Hallo, ich bin Fabian Locher! <span>👋</span></h1>
         <h2>Kaufmann EFZ & zukünftiger IT-Profi</h2>
@@ -85,7 +80,7 @@
 
         <div class="hobby-images">
           <figure>
-            <img src="@/assets/images/travel.jpg" alt="Bild von Japan" />
+            <img :src="require('@/assets/images/travel.jpg')" alt="Bild von Japan" />
             <figcaption>Japan - Mein bisheriges Highlight.</figcaption>
           </figure>
           <figure>
@@ -108,7 +103,7 @@
             </figcaption>
           </figure>
           <figure>
-            <img src="@/assets/images/music.jpg" alt="Musikfestival" />
+            <img :src="require('@/assets/images/music.jpg')" alt="Musikfestival" />
             <figcaption>
               Gurtenfestival: Jährliches Ritual mit der besten Musik und
               Freunden.
@@ -125,13 +120,45 @@
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
+
 export default {
   name: "AboutPage",
+  components: {
+    RouterLink
+  }
 };
 </script>
 
 <style scoped>
 /* Hier kannst du alle Stile aus der 'styles.css' einfügen, die spezifisch für die About-Seite sind */
+.navbar {
+  background-color: #333;
+  padding: 10px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
 .intro {
   text-align: center;
   padding: 50px;

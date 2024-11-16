@@ -1,52 +1,41 @@
 <template>
-  <div class="contact-page">
-    <header>
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/timeline">Timeline</a></li>
-          <li><a href="/contact" class="active">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
 
-    <main>
+
+    <main class="contact-main">
       <section class="contact">
-        <h1>Kontakt</h1>
-        <form id="contactForm" @submit.prevent="submitForm">
-          <label for="name">Name:</label>
-          <input type="text" id="name" v-model="name" required maxlength="60" />
+      <h1>Kontakt</h1>
+      <form id="contactForm" @submit.prevent="submitForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" v-model="name" required maxlength="60" />
 
-          <label for="email">E-Mail:</label>
-          <input type="email" id="email" v-model="email" required />
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" v-model="email" required />
 
-          <label for="message">Nachricht:</label>
-          <textarea
-            id="message"
-            v-model="message"
-            required
-            maxlength="400"
-          ></textarea>
+        <label for="message">Nachricht:</label>
+        <textarea
+        id="message"
+        v-model="message"
+        required
+        maxlength="400"
+        ></textarea>
 
-          <button type="submit">Absenden</button>
-        </form>
+        <button type="submit">Absenden</button>
+      </form>
       </section>
 
       <!-- Modal for Success Message -->
       <div v-if="showModal" id="myModal" class="modal">
-        <div class="modal-content">
-          <span @click="closeModal" class="close">&times;</span>
-          <h2>Danke! 🎉</h2>
-          <p>Ihre Nachricht wurde erfolgreich gesendet.</p>
-        </div>
+      <div class="modal-content">
+        <span @click="closeModal" class="close">&times;</span>
+        <h2>Danke! 🎉</h2>
+        <p>Ihre Nachricht wurde erfolgreich gesendet.</p>
+      </div>
       </div>
     </main>
 
     <footer>
       <p>© 2024 Fabian Locher</p>
     </footer>
-  </div>
 </template>
 
 <script>
@@ -78,12 +67,13 @@ export default {
 <style scoped>
 /* Kontaktformular-Stile */
 .contact {
-  background: white;
+  background: #f9f9f9;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 300px;
-  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
   transition: transform 0.3s;
 }
 
@@ -92,39 +82,43 @@ export default {
 }
 
 label {
-  margin: 10px 0 5px;
+  margin: 15px 0 5px;
   display: block;
   font-weight: bold;
+  color: #333;
 }
 
 input,
 textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 12px;
+  margin-bottom: 15px;
   border: 1px solid #ddd;
   border-radius: 5px;
   transition: border 0.3s;
+  font-size: 16px;
 }
 
 input:focus,
 textarea:focus {
   border: 1px solid #333;
+  outline: none;
 }
 
 button {
   width: 100%;
-  padding: 10px;
-  background-color: #5cb85c;
+  padding: 12px;
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s;
+  font-size: 16px;
 }
 
 button:hover {
-  background-color: #4cae4c;
+  background-color: #0056b3;
 }
 
 /* Modal Styles */
@@ -137,18 +131,13 @@ button:hover {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   padding-top: 60px;
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: #fff;
   margin: 5% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 300px;
-  border-radius: 10px;
-  text-align: center;
 }
 
 .close {
