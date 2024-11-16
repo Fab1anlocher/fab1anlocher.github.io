@@ -1,35 +1,18 @@
 <template>
 
+<header>
+  <nav>
+    <ul>
+      <li><RouterLink to="/">Home</RouterLink></li>
+      <li><RouterLink to="/about">About</RouterLink></li>
+      <li><RouterLink to="/timeline">Timeline</RouterLink></li>
+      <li><RouterLink to="/contact">Contact</RouterLink></li>
+    </ul>
+  </nav>
+</header>
 <main>
   <router-view></router-view> <!-- Hier wird der Inhalt der Routen geladen -->
 </main>
-
-  <div id="app">
-    <header>
-      <nav>
-        <ul>
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/about">About</router-link></li>
-          <li><router-link to="/timeline">Timeline</router-link></li>
-          <li><router-link to="/contact">Contact</router-link></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div class="content-wrapper">
-          <h1>Fabian Locher</h1>
-          <p>Account Manager & Wirtschaftsinformatik Student</p>
-          <router-link to="/contact" class="cta">Kontaktieren Sie mich</router-link>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <p>© 2024 Fabian Locher</p>
-    </footer>
-  </div>
 </template>
 
 <script>

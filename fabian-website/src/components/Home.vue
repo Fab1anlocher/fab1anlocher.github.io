@@ -12,7 +12,7 @@
 export default {
   name: "HomePage",
 };
-</script>
+
 
 <style scoped>
 .animation-container {
