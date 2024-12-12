@@ -3,217 +3,321 @@ body {
     font-family: 'Raleway', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5; /* Hintergrundfarbe */
-    color: #333; /* Schriftfarbe */
-    line-height: 1.6; /* Zeilenhöhe */
+    background-color: var(--secondary-bg);
+    color: var(--secondary-text);
+    line-height: 1.6;
 }
 
 /* Kopfzeile */
 header {
-    background-color: #333; /* Hintergrundfarbe des Headers */
-    padding: 1rem; /* Padding für den Header */
+    background-color: #333;
+    padding: 1rem;
+    text-align: center;
 }
 
-/* Navigation */
 nav ul {
-    list-style: none; /* Keine Aufzählungszeichen */
-    display: flex; /* Flexbox für die Navigation */
-    justify-content: center; /* Zentrierung der Navigation */
-    padding: 0; /* Kein Padding */
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
 }
 
 nav ul li {
-    margin: 0 15px; /* Abstand zwischen den Listenelementen */
+    margin: 0 10px;
 }
 
 nav ul li a {
-    color: white; /* Linkfarbe */
-    text-decoration: none; /* Unterstreichung entfernen */
-    font-weight: bold; /* Fettschrift für Links */
-    transition: color 0.3s; /* Übergangseffekt für Hover */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #f4d03f; /* Hover-Farbe */
+    color: #f4d03f;
 }
 
-/* Intro Styles */
+/* Farbvariablen */
+:root {
+    --primary-bg: linear-gradient(135deg, #1b1f3b, #00bcd4); /* Blau-Türkis */
+    --secondary-bg: #f4f4f4; /* Helles Grau */
+    --primary-text: #ffffff; /* Weiß */
+    --secondary-text: #1b1f3b; /* Dunkelblau */
+    --highlight-color: #0f1516; /* Türkis */
+}
+
+/* Einheitlicher Stil für die Intro-Sektion */
 .intro {
-    text-align: center; /* Zentrierung des Textes */
-    padding: 50px; /* Padding für den Intro-Bereich */
-    background-color: #333; /* Hintergrundfarbe */
-    color: white; /* Schriftfarbe */
+    text-align: center;
+    padding: 80px 20px;
+    background: var(--primary-bg);
+    color: var(--primary-text);
+    position: relative;
+    overflow: hidden;
+    border-bottom: 5px solid #333; /* Konsistenz mit dem Header */
 }
 
-.intro h1 span {
-    animation: wave 2s infinite; /* Animation für den Text */
+.intro::before, .intro::after {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2); /* Transparenter Kreis */
+    z-index: 0;
+    animation: float 6s infinite ease-in-out;
+}
+
+.intro::before {
+    top: -50px;
+    left: -50px;
+}
+
+.intro::after {
+    bottom: -50px;
+    right: -50px;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.intro-content {
+    position: relative;
+    z-index: 1;
+}
+
+.intro h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: var(--primary-text);
+}
+
+.intro .highlight {
+    color: var(--highlight-color);
+    font-weight: bold;
+}
+
+.intro .wave {
+    display: inline-block;
+    animation: wave 2s infinite;
 }
 
 @keyframes wave {
     0%, 100% {
-        transform: rotate(0deg); /* Anfang und Ende der Animation */
+        transform: rotate(0deg);
     }
     50% {
-        transform: rotate(20deg); /* Mitte der Animation */
+        transform: rotate(20deg);
     }
 }
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: var(--primary-text);
+}
+
+.description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: var(--primary-text);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--highlight-color);
+    color: var(--primary-text);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Modernes Design */
+}
+
+.cta-button:hover {
+    background: var(--primary-text);
+    color: var(--secondary-text);
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Hover-Effekt */
+}
+
+
+/* Einheitlicher Seitenhintergrund */
+body {
+    background: var(--secondary-bg);
+    color: var(--secondary-text);
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
 
 /* Skills Styles */
 .skills, .hard-skills, .languages {
-    padding: 50px; /* Padding für Skills-Bereich */
-    background-color: #fff; /* Hintergrundfarbe */
+    padding: 30px;
+    background-color: #fff;
 }
 
 .skills h2, .hard-skills h2, .languages h2 {
-    text-align: center; /* Zentrierung der Überschriften */
-    margin-bottom: 30px; /* Abstand nach unten */
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .skill-grid {
-    display: grid; /* Grid für die Skills */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive Grid */
-    gap: 20px; /* Abstand zwischen den Grid-Elementen */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 10px;
 }
 
 .skill-card {
-    background-color: #f4d03f; /* Hintergrundfarbe der Skill-Karten */
-    padding: 20px; /* Padding für die Karten */
-    border-radius: 10px; /* Abgerundete Ecken */
-    text-align: center; /* Zentrierung des Textes */
-    transition: transform 0.3s; /* Übergangseffekt für Hover */
+    background-color: #f4d03f;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
 }
 
 .skill-card:hover {
-    transform: scale(1.05); /* Vergrößerung bei Hover */
+    transform: scale(1.1);
 }
 
 .hard-skills ul, .languages ul {
-    list-style: none; /* Keine Aufzählungszeichen */
-    padding: 0; /* Kein Padding */
-    max-width: 600px; /* Maximale Breite */
-    margin: 0 auto; /* Zentrierung */
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .hard-skills ul li, .languages ul li {
-    background-color: #f4f4f4; /* Hintergrundfarbe der Listenelemente */
-    padding: 15px; /* Padding für die Listenelemente */
-    margin-bottom: 10px; /* Abstand nach unten */
-    border-radius: 5px; /* Abgerundete Ecken */
-    font-weight: bold; /* Fettschrift */
+    background-color: #f4f4f4;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 /* Hobbies Styles */
 .hobbies {
-    background-color: #333; /* Hintergrundfarbe */
-    color: white; /* Schriftfarbe */
-    text-align: center; /* Zentrierung des Textes */
-    padding: 50px; /* Padding für den Hobbies-Bereich */
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px;
 }
 
 .hobby-images {
-    display: flex; /* Flexbox für die Hobby-Bilder */
-    justify-content: center; /* Zentrierung */
-    gap: 20px; /* Abstand zwischen den Bildern */
-    flex-wrap: wrap; /* Umbruch bei zu vielen Bildern */
-    margin-top: 20px; /* Abstand nach oben */
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .hobby-images figure {
-    flex: 1 1 250px; /* Flexbox-Elemente */
-    max-width: 300px; /* Maximale Breite */
+    flex: 1 1 200px;
+    max-width: 300px;
 }
 
 .hobby-images img {
-    width: 100%; /* Bildbreite */
-    border-radius: 10px; /* Abgerundete Ecken */
-    transition: transform 0.3s; /* Übergangseffekt für Hover */
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s;
 }
 
 .hobby-images img:hover {
-    transform: scale(1.05); /* Vergrößerung bei Hover */
+    transform: scale(1.1);
 }
 
 .hobby-images figcaption {
-    margin-top: 10px; /* Abstand nach oben */
-    color: #f4d03f; /* Schriftfarbe */
-    font-style: italic; /* Kursivschrift */
+    margin-top: 10px;
+    color: #f4d03f;
+    font-style: italic;
 }
 
-/* Countdown Styles                               */
+/* Countdown Styles */
 .countdown {
-    text-align: center; /* Zentrierung des Textes */
-    margin: 20px 0; /* Abstand oben und unten */
-    padding: 20px; /* Padding für den Countdown */
-    background-color: #f9f9f9; /* Heller Hintergrund */
-    border-radius: 10px; /* Abgerundete Ecken */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Schatteneffekt */
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .countdown h2 {
-    font-size: 24px; /* Schriftgröße */
-    margin-bottom: 10px; /* Abstand nach unten */
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 
 .countdown-timer {
-    font-size: 20px; /* Schriftgröße */
-    font-weight: bold; /* Fettschrift */
-    color: #333; /* Schriftfarbe */
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
 }
 
 /* Footer Styles */
 footer {
-    text-align: center; /* Zentrierung des Textes */
-    padding: 20px; /* Padding für den Footer */
-    background-color: #333; /* Hintergrundfarbe */
-    color: white; /* Schriftfarbe */
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
 }
 
 /* Animation */
 @keyframes fadeIn {
     from {
-        opacity: 0; /* Anfangsopacity */
+        opacity: 0;
     }
     to {
-        opacity: 1; /* Endopacity */
+        opacity: 1;
     }
 }
 
 /* Erfahrung und Ausbildung */
 .experience-section,
 .education-section {
-    background: #fff; /* Hintergrundfarbe */
-    border-radius: 8px; /* Abgerundete Ecken */
-    margin: 20px auto; /* Abstand oben und unten */
-    padding: 20px; /* Padding für den Abschnitt */
-    max-width: 800px; /* Maximale Breite */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Schatteneffekt */
-    animation: fadeIn 0.5s ease-in-out; /* Fade-In-Effekt */
+    background: #fff;
+    border-radius: 8px;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .job, .education {
-    margin-bottom: 20px; /* Abstand nach unten */
+    margin-bottom: 15px;
 }
 
 .job h3, .education h3 {
-    margin: 0; /* Kein Abstand */
-    font-size: 1.5em; /* Schriftgröße */
+    margin: 0;
+    font-size: 1.2rem;
 }
 
 .job p, .education p {
-    margin: 5px 0; /* Abstand oben und unten */
+    margin: 5px 0;
 }
-
-
 
 /* Timeline Styles */
 .timeline {
-    padding: 50px 0;
+    padding: 30px 0;
     background-color: #f5f5f5;
 }
 
 .timeline h2 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: #333;
 }
 
@@ -225,100 +329,182 @@ footer {
 
 .timeline-item {
     position: relative;
-    margin: 20px 0;
-    padding-left: 30px; /* Abstand zur Linie */
+    margin: 15px 0;
+    padding-left: 30px;
 }
 
 .timeline-content {
     background: #fff;
-    padding: 20px;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    z-index: 1; /* Damit es über der Linie bleibt */
+    z-index: 1;
 }
 
-.arrow {
-    position: absolute;
-    left: 10px; /* Positionierung der Pfeile */
-    top: 20px; /* Vertikale Position der Pfeile */
-    width: 20px;
-    height: 20px;
-    border-right: 2px solid #007bff;
-    border-bottom: 2px solid #007bff;
-    transform: rotate(45deg);
-    z-index: 0; /* Pfeil hinter den Inhalten */
+/* Responsivität */
+@media (min-width: 768px) {
+    .intro h1 {
+        font-size: 3rem;
+    }
+
+    .skill-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .timeline-container {
+        max-width: 800px;
+    }
+
+    .hobby-images figure {
+        max-width: 250px;
+    }
 }
 
-/* Stil für die Kreise */
-.circle {
-    position: absolute;
-    background: #f4d03f;
-    border-radius: 50%;
-    width: 20px;
- 
-/* Timeline Styles */
-.timeline {
-    padding: 50px 0;
-    background-color: #f5f5f5;
-}
+@media (min-width: 1024px) {
+    .intro h1 {
+        font-size: 3.5rem;
+    }
 
-.timeline h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
-}
+    .skill-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 
-.timeline-container {
-    position: relative;
-    max-width: 600px;
+    .timeline-container {
+        max-width: 1000px;
+    }
+}
+/* Kontaktbereich */
+.contact-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1200px;
     margin: 0 auto;
+    background-color: var(--form-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.timeline-item {
-    position: relative;
-    margin: 20px 0;
-    padding-left: 30px; /* Abstand zur Linie */
-}
-
-.timeline-content {
-    background: #fff;
+/* Kontaktformular */
+.contact-container {
     padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h1 {
+    text-align: center;
+    color: var(--secondary-text);
+    margin-bottom: 20px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.contact-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--secondary-text);
+    font-size: 1rem;
+}
+
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid var(--form-border);
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 1; /* Damit es über der Linie bleibt */
+    font-size: 1rem;
+    background: #fafafa;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.arrow {
-    position: absolute;
-    left: 10px; /* Positionierung der Pfeile */
-    top: 20px; /* Vertikale Position der Pfeile */
-    width: 20px;
-    height: 20px;
-    border-right: 2px solid #007bff;
-    border-bottom: 2px solid #007bff;
-    transform: rotate(45deg);
-    z-index: 0; /* Pfeil hinter den Inhalten */
+.contact-container input:focus,
+.contact-container textarea:focus {
+    border-color: var(--form-focus);
+    box-shadow: 0 0 5px var(--form-focus);
+    outline: none;
 }
 
-/* Countdown Styles */
-.countdown {
-    text-align: center; /* Zentrierung des Textes */
-    margin: 20px 0; /* Abstand oben und unten */
-    padding: 20px; /* Padding für den Countdown */
-    background-color: #f9f9f9; /* Heller Hintergrund */
-    border-radius: 10px; /* Abgerundete Ecken */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Schatteneffekt */
+.contact-container button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    background: var(--highlight-color);
+    color: var(--primary-text);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.countdown h2 {
-    font-size: 24px; /* Schriftgröße */
-    margin-bottom: 10px; /* Abstand nach unten */
+.contact-container button:hover {
+    background: var(--form-focus);
+    transform: scale(1.05);
 }
 
-.countdown-timer {
-    font-size: 20px; /* Schriftgröße */
-    font-weight: bold; /* Fettschrift */
-    color: #333; /* Schriftfarbe */
+/* LinkedIn-Bereich */
+.linkedin-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.linkedin-container a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+
+.linkedin-container img {
+    width: 100%;
+    transition: transform 0.3s;
+}
+
+.linkedin-container img:hover {
+    transform: scale(1.1);
+}
+
+/* Google Maps */
+.map-container {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsivität */
+@media (min-width: 768px) {
+    .contact-section {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .linkedin-container {
+        grid-column: span 2;
+    }
+}
+
+/* Erfolgsmeldung */
+.modal-success {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--form-bg);
+    color: var(--secondary-text);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+    animation: fadeIn 0.6s ease-in-out;
 }

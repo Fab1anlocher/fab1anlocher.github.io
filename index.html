@@ -5,32 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fabian Locher</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .name-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .letter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1b1f3b;
+            text-decoration: none;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .letter:hover {
+            transform: scale(1.2);
+            color: #00bcd4;
+        }
+
+        .description {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="timeline.html">Timeline</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero">
-            <div class="content-wrapper">
-                <h1>Fabian Locher</h1>
-                <p>Account Manager & Wirtschaftsinformatik Student</p>
-                <a href="contact.html" class="cta">Kontaktieren Sie mich</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2024 Fabian Locher</p>
-    </footer>
+    <h1>Fabian Locher</h1>
+    <div class="name-container">
+        <a href="https://www.behindthename.com" class="letter" target="_blank" title="Fun Fact über Fabian">F</a>
+        <a href="https://deepestwords.de/ironische-sprueche/" class="letter" target="_blank" title="Arbeiten ist das halbe Leben">A</a>
+        <a href="https://fcbayern.com" class="letter" target="_blank" title="FC Bayern München">B</a>
+        <a href="https://stackoverflow.com" class="letter" target="_blank" title="IT-Tools und Infos">I</a>
+        <a href="https://www.youtube.com" class="letter" target="_blank" title="Ski Aggu Videos">A</a>
+        <a href="https://nfl.com" class="letter" target="_blank" title="NFL-Football">N</a>
+    </div>
+    <div class="name-container">
+        <a href="https://www.linkedin.com/in/fabian-locher-5967011b6" class="letter" target="_blank" title="Mein LinkedIn-Profil">L</a>
+        <a href="https://en.wikipedia.org/wiki/One_Piece" class="letter" target="_blank" title="One Piece Anime">O</a>
+        <a href="https://chat.openai.com" class="letter" target="_blank" title="KI und ChatGPT">C</a>
+        <a href="https://www.spotify.com" class="letter" target="_blank" title="Hip-Hop Playlist auf Spotify">H</a>
+        <a href="https://eltonymate.com" class="letter" target="_blank" title="El Tony Mate">E</a>
+        <a href="https://www.neo1.ch" class="letter" target="_blank" title="Radio neo1">R</a>
+    </div>
+    <p class="description">Hover über die Buchstaben, um mehr zu erfahren! Klick, um die Links zu besuchen.</p>
 </body>
 </html>
-

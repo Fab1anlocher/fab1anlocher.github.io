@@ -6,131 +6,126 @@
     <title>Kontakt</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 1em 0;
-            text-align: center;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: calc(100vh - 120px);
-            padding: 20px;
-        }
-        .contact {
-            background: white;
+        /* Kartenstil */
+        .map-container {
+            width: 100%;
+            height: 400px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Modal-Stil */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
             padding: 20px;
-            width: 300px;
-            transition: transform 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            z-index: 1000;
         }
-        .contact:hover {
-            transform: scale(1.05);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        label {
-            margin: 10px 0 5px;
+
+        .modal.show {
             display: block;
-            font-weight: bold;
         }
-        input, textarea {
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            transition: border 0.3s;
-            box-sizing: border-box; /* Ensures padding is included in width */
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
         }
-        input:focus, textarea:focus {
-            border: 1px solid #333;
+
+        .modal-overlay.show {
+            display: block;
         }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #5cb85c;
+
+        .modal button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: var(--highlight-color);
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s;
         }
-        button:hover {
-            background-color: #4cae4c;
+
+        .modal button:hover {
+            background: var(--primary-bg);
         }
-        footer {
+
+        /* Kontaktbereich */
+        .about-location {
             text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-        }
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.4);
-            padding-top: 60px;
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 300px;
+            padding: 30px 20px;
+            background-color: #f9f9f9;
             border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: var(--form-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Emojis und Überschriften-Stil */
+        .contact-header {
             text-align: center;
+            margin-bottom: 20px;
         }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
+
+        .contact-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
+
+        .contact-header p {
+            font-size: 1.2rem;
+            color: var(--secondary-text);
         }
-        /* Animation for thank you message */
-        .thank-you-animation {
-            display: none;
-            animation: fadeIn 1s forwards;
+
+        .linkedin-container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+
+        .linkedin-container a {
+            display: inline-block;
+            margin-top: 10px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .linkedin-container img {
+            width: 100%;
+            transition: transform 0.3s;
+        }
+
+        .linkedin-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .map-container {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -141,84 +136,92 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="timeline.html">Timeline</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="contact">
-            <h1>Kontakt</h1>
-            <form id="contactForm" action="https://formspree.io/f/mqazrgdw" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required maxlength="60">
 
-                <label for="email">E-Mail:</label>
-                <input type="email" id="email" name="email" required>
+        <!-- Kontaktieren -->
+        <section class="contact-section">
+            <div class="contact-header">
+                <h1>📬 Kontaktieren Sie mich</h1>
+                <p>Haben Sie Fragen oder möchten Sie zusammenarbeiten? Nutzen Sie das Formular, um mir direkt eine Nachricht zu senden!</p>
+            </div>
 
-                <label for="message">Nachricht:</label>
-                <textarea id="message" name="message" required maxlength="400"></textarea>
+            <div class="contact-container">
+                <form id="contactForm">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Ihr Name" required maxlength="60">
 
-                <button type="submit">Absenden</button>
-            </form>
+                    <label for="email">E-Mail:</label>
+                    <input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+
+                    <label for="message">Nachricht:</label>
+                    <textarea id="message" name="message" placeholder="Ihre Nachricht" required maxlength="400"></textarea>
+
+                    <button type="submit">Absenden</button>
+                </form>
+            </div>
         </section>
+
+        <!-- LinkedIn und Google Maps -->
+        <section class="linkedin-container">
+            <h3>👔 LinkedIn</h3>
+            <p>Verbinden Sie sich mit mir auf LinkedIn, um mehr über mich zu erfahren.</p>
+            <a href="https://www.linkedin.com/in/fabian-locher-5967011b6" target="_blank">
+                <img src="images/linkedin-logo.png" alt="LinkedIn Logo">
+            </a>
+        </section>
+        <!-- Hier bin ich zuhause -->
+        <section class="about-location">
+            <h1>🌍 Hier bin ich zuhause</h1>
+        </section>
+
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2763.0125023996363!2d7.624721515676016!3d47.05900117915479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e2ca3b764e69f%3A0xa853ac80a4e1830!2sBurgdorf%2C%20Schweiz!5e0!3m2!1sde!2sch!4v1700000000000" 
+                width="100%" 
+                height="400" 
+                style="border: 0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
     </main>
 
     <footer>
         <p>© 2024 Fabian Locher</p>
     </footer>
 
-    <!-- Modal for Success Message -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeModal">&times;</span>
-            <h2>Danke! 🎉</h2>
-            <p class="thank-you-animation">Ihre Nachricht wurde erfolgreich gesendet.</p>
-        </div>
+    <div class="modal-overlay"></div>
+    <div class="modal">
+        <p>Vielen Dank! Ich melde mich bald bei Ihnen.</p>
+        <button id="closeModal">Schließen</button>
     </div>
 
     <script>
-        // Show modal on successful submission
-        const contactForm = document.getElementById('contactForm');
-        const modal = document.getElementById('myModal');
+        const form = document.getElementById('contactForm');
+        const modal = document.querySelector('.modal');
+        const overlay = document.querySelector('.modal-overlay');
         const closeModal = document.getElementById('closeModal');
 
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-            const formData = new FormData(this);
+            // Zeige die Modal-Nachricht
+            modal.classList.add('show');
+            overlay.classList.add('show');
 
-            fetch('https://formspree.io/f/mqazrgdw', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json' // Ensure we expect JSON in the response
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    modal.style.display = "block"; // Show the modal
-                    this.reset(); // Reset the form
-                    document.querySelector('.thank-you-animation').style.display = 'block'; // Show the thank you message
-                } else {
-                    alert('Fehler beim Senden der Nachricht. Bitte versuche es erneut.');
-                }
-            })
-            .catch(error => {
-                console.error('Fehler:', error);
-                alert('Ein unerwarteter Fehler ist aufgetreten.');
-            });
+            // Formular zurücksetzen
+            form.reset();
         });
 
-        // Close the modal
-        closeModal.onclick = function() {
-            modal.style.display = "none";
-        }
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('show');
+            overlay.classList.remove('show');
+        });
     </script>
 </body>
 </html>
