@@ -1,64 +1,174 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fabian Locher</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Raleway', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            text-align: center;
-            padding: 50px;
+        :root {
+            --primary-bg: linear-gradient(135deg, #1b1f3b, #00bcd4); /* Blau-Türkis */
+            --secondary-bg: #f4f4f4; /* Helles Grau */
+            --primary-text: #ffffff; /* Weiß */
+            --secondary-text: #1b1f3b; /* Dunkelblau */
+            --highlight-color: #4caf50; /* Akzentgrün */
         }
 
-        .name-container {
+        body {
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: var(--secondary-bg);
+            color: var(--secondary-text);
+        }
+
+        header {
+            background-color: #333;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
             display: flex;
             justify-content: center;
-            gap: 15px;
+            padding: 0;
+            margin: 0;
             flex-wrap: wrap;
         }
 
-        .letter {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #1b1f3b;
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
             text-decoration: none;
-            transition: transform 0.3s, color 0.3s;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f4d03f;
+        }
+
+        .content {
+            flex: 1; /* Flexibles Layout, um Footer unten zu halten */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .name-container {
+            margin: 40px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            max-width: 800px;
+        }
+
+        .row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .letter {
+            font-size: 5rem; /* Größere Buchstaben */
+            color: var(--primary-text);
+            background-color: #333;
+            width: 100px; /* Größere Felder */
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
         }
 
         .letter:hover {
-            transform: scale(1.2);
-            color: #00bcd4;
+            background-color: var(--highlight-color);
+            transform: translateY(-5px);
         }
 
-        .description {
+        .info {
             margin-top: 20px;
-            font-size: 1rem;
-            color: #555;
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            max-width: 600px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: var(--highlight-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--primary-text);
         }
     </style>
 </head>
+
 <body>
-    <h1>Fabian Locher</h1>
-    <div class="name-container">
-        <a href="https://www.behindthename.com" class="letter" target="_blank" title="Fun Fact über Fabian">F</a>
-        <a href="https://deepestwords.de/ironische-sprueche/" class="letter" target="_blank" title="Arbeiten ist das halbe Leben">A</a>
-        <a href="https://fcbayern.com" class="letter" target="_blank" title="FC Bayern München">B</a>
-        <a href="https://stackoverflow.com" class="letter" target="_blank" title="IT-Tools und Infos">I</a>
-        <a href="https://www.youtube.com" class="letter" target="_blank" title="Ski Aggu Videos">A</a>
-        <a href="https://nfl.com" class="letter" target="_blank" title="NFL-Football">N</a>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Inhalt -->
+    <div class="content">
+        <div class="name-container">
+            <div class="row">
+                <a href="https://www.behindthename.com" class="letter" title="Fun Fact über Fabian">F</a>
+                <a href="https://deepestwords.de/ironische-sprueche/" class="letter" title="Arbeiten ist das halbe Leben">a</a>
+                <a href="https://fcbayern.com" class="letter" title="FC Bayern München">b</a>
+                <a href="https://stackoverflow.com" class="letter" title="IT-Tools und Infos">i</a>
+                <a href="https://www.youtube.com" class="letter" title="Ski Aggu Videos">a</a>
+                <a href="https://nfl.com" class="letter" title="NFL-Football">n</a>
+            </div>
+            <div class="row">
+                <a href="https://www.linkedin.com/in/fabian-locher-5967011b6" class="letter" title="Mein LinkedIn-Profil">L</a>
+                <a href="https://en.wikipedia.org/wiki/One_Piece" class="letter" title="One Piece Anime">o</a>
+                <a href="https://chat.openai.com" class="letter" title="KI und ChatGPT">c</a>
+                <a href="https://www.spotify.com" class="letter" title="Hip-Hop Playlist auf Spotify">h</a>
+                <a href="https://eltonymate.com" class="letter" title="El Tony Mate">e</a>
+                <a href="https://www.neo1.ch" class="letter" title="Radio neo1">r</a>
+            </div>
+        </div>
+
+        <div class="info">
+            <p>Klicke auf die Buchstaben und entdecke meine Hobbys und Interessen!</p>
+        </div>
     </div>
-    <div class="name-container">
-        <a href="https://www.linkedin.com/in/fabian-locher-5967011b6" class="letter" target="_blank" title="Mein LinkedIn-Profil">L</a>
-        <a href="https://en.wikipedia.org/wiki/One_Piece" class="letter" target="_blank" title="One Piece Anime">O</a>
-        <a href="https://chat.openai.com" class="letter" target="_blank" title="KI und ChatGPT">C</a>
-        <a href="https://www.spotify.com" class="letter" target="_blank" title="Hip-Hop Playlist auf Spotify">H</a>
-        <a href="https://eltonymate.com" class="letter" target="_blank" title="El Tony Mate">E</a>
-        <a href="https://www.neo1.ch" class="letter" target="_blank" title="Radio neo1">R</a>
-    </div>
-    <p class="description">Hover über die Buchstaben, um mehr zu erfahren! Klick, um die Links zu besuchen.</p>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Fabian Locher. <a href="contact.html">Kontakt</a>.</p>
+    </footer>
 </body>
+
 </html>

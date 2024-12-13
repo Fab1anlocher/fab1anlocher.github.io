@@ -7,6 +7,9 @@
     <title>Über Mich</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
     <style>
         .progress-container {
             width: 100%;
@@ -33,9 +36,15 @@
             width: 200px;
         }
     </style>
-</head>
 
-<body>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    </head>
+    
+
+
+    <body>
+    <div id="particles-js"></div>
+    
     <header>
         <nav>
             <ul>
@@ -49,11 +58,11 @@
 
     <section class="intro">
         <div class="intro-content">
-            <h1>Hallo, ich bin <span class="highlight">Michelle Probst und ich stinke </span>! <span class="wave">👋</span></h1>
-            <p class="subtitle">Kaufmann EFZ & zukünftiger <span class="highlight">IT-Profi</span></p>
+            <h1>Hey, ich bin <span class="highlight">Fabian Locher</span>! <span class="wave">👋</span></h1>
+            <p class="subtitle">Kaufmann EFZ & <span class="highlight">Wirtschaftsinformatik-Student </span></p>
             <p class="description">
                 Wirtschaftsinformatik-Student, Fantasy Football Champion, und passionierter Festivalgänger.
-                <br> <strong>2026</strong> schließe ich mein Studium ab und bin bereit, in der <span class="highlight">IT-Welt</span> durchzustarten!
+                <br> <strong>2026</strong> schliesse ich mein Studium ab und bin bereit, in der <span class="highlight">IT-Welt</span> durchzustarten!
             </p>
             <a href="contact.html" class="cta-button">Kontakt aufnehmen</a>
         </div>
@@ -61,7 +70,9 @@
     
         
 
-        <section class="skills">
+        <main>
+            
+            <section class="skills">
             <h2>Soft Skills</h2>
             <div class="skill-grid">
                 <div class="skill-card">
@@ -89,7 +100,7 @@
                     <p>Ich arbeite eigenständig und erledige Aufgaben effizient.</p>
                 </div>
                 <div class="skill-card">
-                    <h3>IT-Affinitä <span>🏆</span></h3>
+                    <h3>IT-Affinität <span>🏆</span></h3>
                     <p>Begeisterung für IT-Systeme und digitale Prozesse</p>
                 </div>
                 <div class="skill-card">
@@ -179,11 +190,60 @@
                 </figure>
             </div>
         </section>
+
+        <section class="map-section">
+            <h2>🌍 Mein Standort</h2>
+            <div class="map-container" id="map"></div>
+        </section>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const map = L.map('map').setView([47.059, 7.627], 13); // Koordinaten für Burgdorf
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
+        
+                const marker = L.marker([47.059, 7.627]).addTo(map);
+                marker.bindPopup("<b>Hier bin ich zuhause!</b><br>Burgdorf, Schweiz").openPopup();
+            });
+        </script>
+        
     </main>
 
     <footer>
         <p>© 2024 Fabian Locher</p>
     </footer>
-</body>
 
-</html>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const progressBars = document.querySelectorAll(".progress-bar");
+            progressBars.forEach(bar => {
+                const value = bar.style.width;
+                bar.style.width = "0";
+                setTimeout(() => {
+                    bar.style.width = value;
+                }, 500);
+            });
+
+            particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.json', function() {
+                console.log('Particles.js loaded.');
+            });
+
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = { threshold: 0.5, rootMargin: "0px 0px -50px 0px" };
+            const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('appear');
+                    observer.unobserve(entry.target);
+                });
+            }, appearOptions);
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+    </body>
+    
+
+</html>d</div>iv
+
