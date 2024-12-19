@@ -2,15 +2,15 @@
 :root {
     --primary-bg: #f4f4f4; /* Hellgrauer Hintergrund */
     --secondary-bg: #ffffff; /* Weißer Hintergrund */
-    --accent: #4caf50; /* Akzentfarbe (Grün) */
+    --accent: #0166E2; /* Akzentfarbe (Blau) */
     --text-dark: #333; /* Dunkler Text */
     --text-light: #fff; /* Weißer Text */
     --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Standard Schatten */
     --border-radius: 10px;
-    --highlight-color: #4caf50;
+    --highlight-color: #019FE3;
     --form-bg: #fafafa; /* Hintergrundfarbe für Formulare */
     --form-border: #ccc;
-    --form-focus: #4caf50;
+    --form-focus: #019FE3;
 }
 
 /* Basisstyles */
@@ -22,37 +22,73 @@ body {
     line-height: 1.6;
 }
 
-/* Kopfzeile */
-header {
-    background-color: #333;
+/* Kopfzeile (Hamburger-Header) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #232B2A;
     color: var(--text-light);
-    padding: 1rem;
-    text-align: center;
+    box-shadow: var(--box-shadow);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
-nav ul {
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: var(--text-light);
+    margin: 3px 0;
+}
+
+.nav-list {
     list-style: none;
     display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
     gap: 20px;
-}
-
-nav ul li {
     margin: 0;
+    padding: 0;
 }
 
-nav ul li a {
-    color: var(--text-light);
+.nav-list li a {
     text-decoration: none;
+    color: var(--text-light);
     font-weight: bold;
     transition: color 0.3s;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
+.nav-list li a:hover {
     color: var(--highlight-color);
+}
+
+/* Responsive Design für Header */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #232B2A;
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
 }
 
 /* Einheitlicher Stil für die Intro-Sektion */
@@ -66,14 +102,9 @@ nav ul li a.active {
 }
 
 .intro h1 {
-    font-size: 2.8rem;
+    font-size: 3.5rem;
     margin-bottom: 20px;
     color: var(--text-dark);
-}
-
-.intro .highlight {
-    color: var(--highlight-color);
-    font-weight: bold;
 }
 
 .intro p {
@@ -81,11 +112,13 @@ nav ul li a.active {
     margin: 15px 0;
 }
 
+/* CTA-Button */
 .cta-button {
     display: inline-block;
     padding: 12px 25px;
-    background: var(--highlight-color);
-    color: var(--text-light);
+    border: 2px solid var(--highlight-color);
+    background: transparent;
+    color: var(--highlight-color);
     border-radius: var(--border-radius);
     text-decoration: none;
     font-weight: bold;
@@ -94,12 +127,13 @@ nav ul li a.active {
 }
 
 .cta-button:hover {
-    background: darken(var(--highlight-color), 10%);
+    background: var(--highlight-color);
+    color: var(--text-light);
     transform: scale(1.05);
 }
 
-/* Skills Sektion */
-.skills, .hard-skills, .languages {
+/* Sektionen für Skills, Fortschrittsbalken und Timeline */
+.skills, .hard-skills, .languages, .timeline {
     background: var(--secondary-bg);
     padding: 30px;
     margin: 20px auto;
@@ -107,7 +141,7 @@ nav ul li a.active {
     box-shadow: var(--box-shadow);
 }
 
-.skills h2, .hard-skills h2, .languages h2 {
+.skills h2, .hard-skills h2, .languages h2, .timeline h2 {
     text-align: center;
     margin-bottom: 20px;
 }
@@ -116,19 +150,6 @@ nav ul li a.active {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-}
-
-.skill-card {
-    background: var(--primary-bg);
-    padding: 20px;
-    text-align: center;
-    border-radius: var(--border-radius);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.skill-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Fortschrittsbalken */
@@ -142,39 +163,6 @@ nav ul li a.active {
     height: 20px;
     background: var(--highlight-color);
     transition: width 1s;
-}
-
-/* Timeline */
-.timeline {
-    padding: 30px 0;
-    background: var(--primary-bg);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.timeline h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.timeline-container {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.timeline-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
-}
-
-.timeline-content {
-    background: var(--secondary-bg);
-    padding: 15px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    flex: 1;
 }
 
 /* Kontaktformular */
@@ -191,13 +179,6 @@ nav ul li a.active {
     margin-bottom: 20px;
     font-size: 2rem;
     font-weight: bold;
-}
-
-.contact-container label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: var(--text-dark);
 }
 
 .contact-container input,
@@ -234,35 +215,7 @@ nav ul li a.active {
 }
 
 .contact-container button:hover {
-    background: darken(var(--highlight-color), 10%);
-    transform: scale(1.05);
-}
-
-/* Hobbys */
-.hobbies {
-    background: #333;
-    color: var(--text-light);
-    text-align: center;
-    padding: 30px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.hobby-images {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.hobby-images img {
-    width: 100%;
-    max-width: 250px;
-    border-radius: var(--border-radius);
-    transition: transform 0.3s ease-in-out;
-}
-
-.hobby-images img:hover {
+    background: var(--highlight-color);
     transform: scale(1.05);
 }
 
@@ -285,14 +238,6 @@ footer a:hover {
     color: var(--text-light);
 }
 
-/* Karte */
-.map-container {
-    height: 400px;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-}
-
 /* Responsivität */
 @media (min-width: 768px) {
     .intro h1 {
@@ -312,4 +257,41 @@ footer a:hover {
     .skill-grid {
         grid-template-columns: repeat(4, 1fr);
     }
+}
+.navigation-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #232B2A;
+    color: #fff;
+    text-align: center;
+}
+
+.navigation-page h1 {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: var(--highlight-color);
+}
+
+.navigation-page ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navigation-page ul li {
+    margin: 15px 0;
+}
+
+.navigation-page ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navigation-page ul li a:hover {
+    color: var(--highlight-color);
 }

@@ -4,171 +4,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fabian Locher</title>
+    <title>Fabian Locher - Willkommen</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-bg: linear-gradient(135deg, #1b1f3b, #00bcd4); /* Blau-Türkis */
-            --secondary-bg: #f4f4f4; /* Helles Grau */
-            --primary-text: #ffffff; /* Weiß */
-            --secondary-text: #1b1f3b; /* Dunkelblau */
-            --highlight-color: #4caf50; /* Akzentgrün */
-        }
-
         body {
             font-family: 'Raleway', sans-serif;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background-color: var(--secondary-bg);
-            color: var(--secondary-text);
-        }
-
-        header {
-            background-color: #333;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
             padding: 0;
-            margin: 0;
-            flex-wrap: wrap;
+            background: #f4f4f4;
+            color: #333;
         }
 
-        nav ul li {
-            margin: 0 10px;
+        .menu-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 100;
         }
 
-        nav ul li a {
-            color: white;
+        .menu-icon a {
             text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
         }
 
-        nav ul li a:hover {
-            color: #f4d03f;
+        .menu-icon div {
+            width: 30px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #333;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin: 20px 0;
         }
 
         .content {
-            flex: 1; /* Flexibles Layout, um Footer unten zu halten */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
             padding: 20px;
+            text-align: center;
         }
 
-        .name-container {
-            margin: 40px auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-            max-width: 800px;
-        }
-
-        .row {
-            display: flex;
-            gap: 15px;
-        }
-
-        .letter {
-            font-size: 5rem; /* Größere Buchstaben */
-            color: var(--primary-text);
-            background-color: #333;
-            width: 100px; /* Größere Felder */
-            height: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .quiz-container {
+            background: white;
+            padding: 30px;
+            margin: 20px auto;
             border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .letter:hover {
-            background-color: var(--highlight-color);
-            transform: translateY(-5px);
-        }
-
-        .info {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            color: var(--secondary-text);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             max-width: 600px;
         }
 
-        footer {
-            background-color: #333;
+        .quiz-container h2 {
+            margin-bottom: 20px;
+            color: #019FE3;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .quiz-option {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quiz-option:hover {
+            background: #019FE3;
             color: white;
+            transform: scale(1.05);
+        }
+
+        .result {
+            display: none;
+            padding: 20px;
+            background: #019FE3;
+            color: white;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .result img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .retry-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #fff;
+            color: #019FE3;
+            border: 2px solid #019FE3;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .retry-button:hover {
+            background: #019FE3;
+            color: #fff;
+        }
+
+        footer {
             text-align: center;
             padding: 20px;
-            margin-top: 40px;
+            background: #333;
+            color: white;
         }
 
         footer a {
-            color: var(--highlight-color);
+            color: #fff;
             text-decoration: none;
-            transition: color 0.3s;
         }
 
         footer a:hover {
-            color: var(--primary-text);
+            color: #aaa;
         }
     </style>
 </head>
 
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="timeline.html">Timeline</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Burger Menü -->
+    <div class="menu-icon">
+        <a href="navigation.html">
+            <div></div>
+            <div></div>
+            <div></div>
+        </a>
+    </div>
 
-    <!-- Inhalt -->
-    <div class="content">
-        <div class="name-container">
-            <div class="row">
-                <a href="https://www.behindthename.com" class="letter" title="Fun Fact über Fabian">F</a>
-                <a href="https://deepestwords.de/ironische-sprueche/" class="letter" title="Arbeiten ist das halbe Leben">a</a>
-                <a href="https://fcbayern.com" class="letter" title="FC Bayern München">b</a>
-                <a href="https://stackoverflow.com" class="letter" title="IT-Tools und Infos">i</a>
-                <a href="https://www.youtube.com" class="letter" title="Ski Aggu Videos">a</a>
-                <a href="https://nfl.com" class="letter" title="NFL-Football">n</a>
-            </div>
-            <div class="row">
-                <a href="https://www.linkedin.com/in/fabian-locher-5967011b6" class="letter" title="Mein LinkedIn-Profil">L</a>
-                <a href="https://en.wikipedia.org/wiki/One_Piece" class="letter" title="One Piece Anime">o</a>
-                <a href="https://chat.openai.com" class="letter" title="KI und ChatGPT">c</a>
-                <a href="https://www.spotify.com" class="letter" title="Hip-Hop Playlist auf Spotify">h</a>
-                <a href="https://eltonymate.com" class="letter" title="El Tony Mate">e</a>
-                <a href="https://www.neo1.ch" class="letter" title="Radio neo1">r</a>
-            </div>
+    <!-- Header-Bereich -->
+    <div class="header">
+        <h1>Willkommen bei Fabian Locher</h1>
+        <p>Teste dein Wissen über mich und entdecke neue Fakten! Starte das Quiz oder lies mehr über mich.</p>
+    </div>
+
+    <!-- Quiz Inhalt -->
+    <div class="content" id="quiz">
+        <div class="quiz-container">
+            <h2>Wie gut kennst du Fabian?</h2>
+            <p id="quiz-question">Frage wird geladen...</p>
+            <div class="quiz-options"></div>
         </div>
 
-        <div class="info">
-            <p>Klicke auf die Buchstaben und entdecke meine Hobbys und Interessen!</p>
-        </div>
+        <div class="result" id="result"></div>
     </div>
 
     <!-- Footer -->
     <footer>
         <p>© 2024 Fabian Locher. <a href="contact.html">Kontakt</a>.</p>
     </footer>
+
+    <script>
+        const questions = [
+            { question: "Welches ist Fabians Lieblingsteam im Fußball?", options: ["Borussia Dortmund", "FC Bayern München", "Real Madrid", "Liverpool"], correct: "FC Bayern München" },
+            { question: "Was ist Fabians Lieblingsessen?", options: ["Pizza", "Sushi", "Döner", "Pasta"], correct: "Döner" },
+            { question: "Welches ist Fabians Lieblingsanime?", options: ["Dragon Ball", "Attack on Titan", "Naruto", "One Piece"], correct: "One Piece" },
+            { question: "Welche Serie schaut Fabian am liebsten?", options: ["Breaking Bad", "The Office", "Friends", "Game of Thrones"], correct: "The Office" },
+            { question: "Welches war Fabians meistgespielter Spotify-Song 2024?", options: ["My Eyes - Travis Scott", "Flowers - Miley Cyrus", "Kill Bill - SZA", "Unholy - Sam Smith"], correct: "My Eyes - Travis Scott" },
+            { question: "Welches ist Fabians Lieblingsfilm?", options: ["Forrest Gump", "Inception", "The Dark Knight", "Interstellar"], correct: "Forrest Gump" },
+            { question: "Welches ist Fabians Lieblingsgetränk?", options: ["Wasser", "El Tony Mate", "Cola", "Kaffee"], correct: "El Tony Mate" },
+            { question: "Was studiert Fabian?", options: ["Informatik", "BWL", "Wirtschaftsinformatik", "Maschinenbau"], correct: "Wirtschaftsinformatik" },
+            { question: "Wo arbeitet Fabian?", options: ["SAP", "Google", "Radio neo1", "Nestlé"], correct: "Radio neo1" },
+            { question: "In welchem Spiel hat Fabian die meisten Stunden?", options: ["League of Legends", "Counter-Strike", "Minecraft", "FIFA"], correct: "Counter-Strike" }
+        ];
+
+        const gifs = {
+            perfect: "https://media.giphy.com/media/kHOts8xerNiFI6KdCO/giphy.gif", // Tina Turner
+            good: "https://media.giphy.com/media/tIeCLkB8geYtW/giphy.gif",       // Shaun the Sheep
+            average: "https://media.giphy.com/media/li9VMmjBDNWQcN1cih/giphy.gif", // Boy thinking
+            bad: "https://media.giphy.com/media/IdId16rKA3v5jTKnOH/giphy.gif"   // Moodman
+};
+
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const quizQuestion = document.getElementById("quiz-question");
+        const quizOptions = document.querySelector(".quiz-options");
+        const result = document.getElementById("result");
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            quizQuestion.textContent = currentQuestion.question;
+            quizOptions.innerHTML = currentQuestion.options
+                .map(option => `<button class="quiz-option">${option}</button>`)
+                .join("");
+            document.querySelectorAll(".quiz-option").forEach(button =>
+                button.addEventListener("click", e => handleAnswer(e, currentQuestion))
+            );
+        }
+
+        function handleAnswer(e, currentQuestion) {
+            if (e.target.textContent === currentQuestion.correct) {
+                score++;
+            }
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.querySelector(".quiz-container").style.display = "none";
+            result.style.display = "block";
+
+let message;
+let gif;
+if (score === questions.length) {
+    message = `Du musst mein bester Freund sein! ${score} von ${questions.length} Punkten – entweder stalkst du mich heimlich, oder du bist einfach genial. 🎉`;
+    gif = gifs.perfect;
+} else if (score >= Math.ceil(questions.length * 0.7)) {
+    message = `Starke Leistung: ${score} von ${questions.length}. Du weisst echt einiges über mich – vielleicht ein bisschen zu viel? 👀`;
+    gif = gifs.good;
+} else if (score >= Math.ceil(questions.length * 0.4)) {
+    message = `Okay, ${score} von ${questions.length}. Ein solider Anfang, aber da geht noch was. Schau mal auf meine Website, da gibt’s Nachhilfe! 😉`;
+    gif = gifs.average;
+} else if (score > 0) {
+    message = `${score} von ${questions.length}? Na ja... Vielleicht bist du nur hier wegen des GIFs am Ende... Versuch’s nochmal – besser wird’s bestimmt.`;
+    gif = gifs.bad;
+} else {
+    message = `0 von ${questions.length}. Uff. Du weißt ja gar nichts über mich! DAS WAR SCHLECHT!!!! Geh sofort auf meine Website und mach das Quiz nochmal. Ich erwarte Fortschritte. 😤`;
+    gif = gifs.bad;
+}
+
+
+
+            result.innerHTML = `<h2>Ergebnis:</h2><p>${message}</p><img src="${gif}" alt="Ergebnis GIF"><button class="retry-button" onclick="retryQuiz()">Quiz wiederholen</button>`;
+        }
+
+        function retryQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            result.style.display = "none";
+            document.querySelector(".quiz-container").style.display = "block";
+            loadQuestion();
+        }
+
+        loadQuestion();
+    </script>
 </body>
 
 </html>
