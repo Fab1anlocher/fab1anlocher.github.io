@@ -133,36 +133,60 @@ body {
 }
 
 /* Sektionen für Skills, Fortschrittsbalken und Timeline */
-.skills, .hard-skills, .languages, .timeline {
+/* Gemeinsamer Stil für Skills */
+.skills-hard, .skills-languages {
     background: var(--secondary-bg);
     padding: 30px;
     margin: 20px auto;
+    max-width: 800px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 }
 
-.skills h2, .hard-skills h2, .languages h2, .timeline h2 {
+.skills-hard h2, .skills-languages h2 {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: var(--text-dark);
 }
 
-.skill-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+.skill {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-/* Fortschrittsbalken */
+.skill-label {
+    font-size: 1rem;
+    color: var(--text-dark);
+    flex-basis: 30%;
+}
+
 .progress-container {
+    flex-grow: 1;
+    height: 15px;
     background: #e0e0e0;
-    border-radius: var(--border-radius);
+    border-radius: 5px;
+    margin-left: 10px;
     overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .progress-bar {
-    height: 20px;
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Farbgebung für Hard Skills */
+.hard-skill-bar {
     background: var(--highlight-color);
-    transition: width 1s;
+}
+
+/* Farbgebung für Sprachen */
+.language-skill-bar {
+    background: #4caf50; /* Einheitliches Grün für Sprachen */
 }
 
 /* Kontaktformular */
@@ -238,7 +262,53 @@ footer a:hover {
     color: var(--text-light);
 }
 
+/* Galerie */
+.gallery {
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Reduzierte Mindestbreite */
+    gap: 2px; /* Weniger Abstand zwischen den Bildern */
+    margin-top: 20px;
+}
+
+.gallery-grid figure {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto; /* Beibehaltung der Proportionen */
+    max-width: 290px; /* Maximale Breite der Bilder weiter reduziert */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-grid figcaption {
+    margin-top: 5px; /* Weniger Abstand zum Text */
+    font-size: 0.75rem; /* Kleinere Schriftgröße */
+    color: #555;
+}
+
+
 /* Responsivität */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* Zwei Spalten für kleinere Geräte */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Eine Spalte für sehr kleine Geräte */
+    }
+}
 @media (min-width: 768px) {
     .intro h1 {
         font-size: 3rem;
@@ -294,4 +364,164 @@ footer a:hover {
 
 .navigation-page ul li a:hover {
     color: var(--highlight-color);
+}
+
+.hobbies {
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+    padding: 60px 20px;
+    margin: 40px auto;
+    max-width: 1200px; /* Breite erhöht */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.hobbies h2 {
+    font-size: 2.4rem; /* Leicht größere Schrift */
+    margin-bottom: 20px;
+    color: #222;
+    font-weight: bold;
+}
+
+.hobby-intro {
+    font-size: 1.2rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    max-width: 900px; /* Angepasst für breiteres Layout */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Breitere Spalten */
+    gap: 30px; /* Mehr Abstand zwischen den Bildern */
+    margin-top: 30px;
+}
+
+.gallery-grid figure {
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid figure:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Kräftigerer Schatten */
+}
+
+.gallery-grid figcaption {
+    margin-top: 12px; /* Etwas mehr Abstand zur Bildunterschrift */
+    font-size: 1rem;
+    color: #555;
+    font-style: italic;
+    text-align: center;
+}
+
+//* Soft Skills Section */
+/* Soft Skills Section */
+.skills-soft {
+    background: #ffffff;
+    padding: 50px 20px;
+    margin: 40px auto;
+    max-width: 1400px; /* Breiter für mehr Spalten */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.skills-soft h2 {
+    font-size: 2.5rem; /* Größer und moderner */
+    margin-bottom: 30px;
+    font-weight: 700; /* Stärkerer Schriftstil */
+    color: #111; /* Sattes Schwarz */
+    letter-spacing: 1px; /* Leichte Abstände für Eleganz */
+}
+
+/* Skill Grid */
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Mehr Spalten nebeneinander */
+    gap: 20px;
+    justify-content: center; /* Zentriert den Grid-Inhalt */
+}
+
+/* Skill Card */
+.skill-card {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px); /* Leichtes Schweben */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Verstärkter Schatten */
+    background-color: #f0f0f0; /* Dezente Aufhellung */
+}
+
+/* Skill Icon */
+.skill-card .icon {
+    font-size: 2.8rem; /* Größer für mehr Fokus */
+    color: #333;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.skill-card:hover .icon {
+    color: #000; /* Kräftiger bei Hover */
+}
+
+/* Skill Title */
+.skill-card h3 {
+    font-size: 1.6rem; /* Moderner und klarer */
+    margin-bottom: 10px;
+    color: #222;
+    font-weight: 600; /* Etwas kräftiger */
+    transition: color 0.3s ease;
+}
+
+.skill-card:hover h3 {
+    color: #000; /* Sattes Schwarz bei Hover */
+}
+
+/* Skill Description */
+.skill-card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+.skill-card:hover p {
+    color: #444; /* Dunklere Farbe bei Hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .skill-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Weniger breite Spalten */
+    }
+}
+
+@media (max-width: 768px) {
+    .skill-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Kleinere Spalten auf Tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-grid {
+        grid-template-columns: 1fr; /* Eine Spalte auf Mobilgeräten */
+    }
 }
