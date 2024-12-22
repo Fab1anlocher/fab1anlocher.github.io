@@ -1,64 +1,199 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt Fabian Locher</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Fabian Locher - Kontakt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        .menu-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .menu-icon a {
+            text-decoration: none;
+        }
+
+        .menu-icon div {
+            width: 30px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #333;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        .contact-section {
+            background: white;
+            padding: 30px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+
+        .contact-section h1 {
+            margin-bottom: 20px;
+            color: #019FE3;
+        }
+
+        .contact-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .contact-container input,
+        .contact-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .contact-container button {
+            width: 100%;
+            padding: 10px;
+            background: #019FE3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .contact-container button:hover {
+            background: #0166E2;
+        }
+
+        .linkedin-container {
+            text-align: center;
+            margin: 40px auto;
+        }
+
+        .linkedin-container img {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .linkedin-container img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .linkedin-container h3 {
+            font-size: 1.8rem;
+            color: #019FE3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #aaa;
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="timeline.html">Timeline</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Burger Menü -->
+    <div class="menu-icon">
+        <a href="navigation.html">
+            <div></div>
+            <div></div>
+            <div></div>
+        </a>
+    </div>
 
-    <main>
-        <section class="contact-section">
-            <div class="contact-header">
-                <h1>📬 Kontaktieren Sie mich</h1>
-                <p>Nutzen Sie das Formular oder verbinden Sie sich über LinkedIn!</p>
-            </div>
+    <!-- Header-Bereich -->
+    <div class="header">
+        <h1>Kontaktieren Sie Fabian Locher</h1>
+        <p>Nutzen Sie das Formular, um mich direkt zu kontaktieren!</p>
+    </div>
 
-            <!-- Kontaktformular -->
-            <div class="contact-container">
-                <form id="contactForm">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Ihr Name" required maxlength="60">
+    <!-- Kontaktformular -->
+    <section class="contact-section">
+        <div class="contact-header">
+            <h1>📬 Kontaktformular</h1>
+            <p>Bitte geben Sie Ihre Daten ein, um eine Nachricht zu senden.</p>
+        </div>
+        <div class="contact-container">
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Ihr Name" required maxlength="60">
 
-                    <label for="email">E-Mail:</label>
-                    <input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
 
-                    <label for="message">Nachricht:</label>
-                    <textarea id="message" name="message" placeholder="Ihre Nachricht" required maxlength="400"></textarea>
+                <label for="message">Nachricht:</label>
+                <textarea id="message" name="message" placeholder="Ihre Nachricht" required maxlength="400"></textarea>
 
-                    <button type="submit">Absenden</button>
-                </form>
-            </div>
-        </section>
+                <button type="submit">Absenden</button>
+            </form>
+        </div>
+    </section>
 
-        <!-- LinkedIn -->
-        <section class="linkedin-container">
-            <h3>👔 LinkedIn</h3>
-            <p>Vernetzten Sie sich mit mir auf LinkedIn, um gemeinsam in Kontakt zu treten.</p>
-            <a href="https://www.linkedin.com/in/fabian-locher-5967011b6" target="_blank">
-                <img src="images/linkedin-logo.png" alt="LinkedIn Logo">
-            </a>
-        </section>
-    </main>
+    <!-- LinkedIn -->
+    <section class="linkedin-container">
+        <h3>👔 Vernetzen Sie sich auf LinkedIn</h3>
+        <p>Verbinden Sie sich mit mir und lassen Sie uns professionell vernetzen.</p>
+        <a href="https://www.linkedin.com/in/fabian-locher-5967011b6" target="_blank">
+            <img src="images/linkedin-logo.png" alt="LinkedIn Profilbild">
+        </a>
+    </section>
 
+    <!-- Footer -->
     <footer>
-        <p>© 2024 Fabian Locher</p>
+        <p>© 2024 Fabian Locher. <a href="contact.html">Kontakt</a>.</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('contactForm');
+
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
                 alert('Vielen Dank für Ihre Nachricht!');
@@ -67,4 +202,5 @@
         });
     </script>
 </body>
+
 </html>

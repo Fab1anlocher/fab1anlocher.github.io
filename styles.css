@@ -1,7 +1,7 @@
 /* Farbvariablen */
 :root {
     --primary-bg: #f4f4f4; /* Hellgrauer Hintergrund */
-    --secondary-bg: #ffffff; /* Weißer Hintergrund */
+    --secondary-bg: #ffffff; /* Weisser Hintergrund */
     --accent: #0166E2; /* Akzentfarbe (Blau) */
     --text-dark: #333; /* Dunkler Text */
     --text-light: #fff; /* Weißer Text */
@@ -296,7 +296,6 @@ footer a:hover {
     color: #555;
 }
 
-
 /* Responsivität */
 @media (max-width: 768px) {
     .gallery-grid {
@@ -309,6 +308,7 @@ footer a:hover {
         grid-template-columns: 1fr; /* Eine Spalte für sehr kleine Geräte */
     }
 }
+
 @media (min-width: 768px) {
     .intro h1 {
         font-size: 3rem;
@@ -328,6 +328,7 @@ footer a:hover {
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
 .navigation-page {
     display: flex;
     flex-direction: column;
@@ -426,7 +427,6 @@ footer a:hover {
     text-align: center;
 }
 
-//* Soft Skills Section */
 /* Soft Skills Section */
 .skills-soft {
     background: #ffffff;
@@ -449,8 +449,7 @@ footer a:hover {
 /* Skill Grid */
 .skill-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Mehr Spalten nebeneinander */
-    gap: 20px;
+    grid
     justify-content: center; /* Zentriert den Grid-Inhalt */
 }
 
@@ -525,3 +524,474 @@ footer a:hover {
         grid-template-columns: 1fr; /* Eine Spalte auf Mobilgeräten */
     }
 }
+
+/* Kontaktformular Design */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    background: linear-gradient(to bottom, var(--primary-bg), var(--secondary-bg));
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.contact-header h1 {
+    font-size: 2.5rem;
+    color: var(--highlight-color);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.contact-header p {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.contact-container input,
+.contact-container textarea {
+    border: 1px solid var(--form-border);
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 10px rgba(1, 150, 233, 0.5);
+}
+
+.contact-container button {
+    background: var(--highlight-color);
+    color: var(--text-light);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact-container button:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* LinkedIn-Bereich */
+.linkedin-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.linkedin-container img {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--box-shadow);
+}
+
+.linkedin-container img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.linkedin-container h3 {
+    font-size: 1.8rem;
+    color: var(--highlight-color);
+}
+
+.linkedin-container p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.linkedin-container a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--highlight-color);
+}
+
+.linkedin-container a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+<style>
+:root {
+    --primary-bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --highlight-color: #019FE3;
+    --text-color: #343a40;
+    --neutral-color: transparent;
+    --secondary-highlight: #495057;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: var(--primary-bg);
+    font-family: 'Raleway', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+.menu-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.menu-icon div {
+    width: 30px;
+    height: 4px;
+    background-color: var(--text-color);
+    margin: 6px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.header {
+    text-align: center;
+    padding: 50px 20px;
+    background: var(--card-bg);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 30px;
+    border-radius: var(--border-radius);
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.header p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin: 10px 0;
+}
+
+.timeline {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline-section {
+    margin-bottom: 30px;
+}
+
+.timeline-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--highlight-color);
+    margin-bottom: 20px;
+}
+
+.timeline-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.timeline-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s;
+}
+
+.timeline-card:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-card h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.timeline-card p,
+.timeline-card time {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin: 5px 0;
+}
+
+.timeline-card time {
+    font-weight: bold;
+    color: var(--secondary-highlight);
+}
+
+.countdown {
+    max-width: 400px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.countdown h2 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 40px;
+}
+
+.countdown-timer {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--secondary-highlight);
+    background: var(--card-bg);
+    padding: 25px 10px; /* Horizontales Padding erhöht */
+    border-radius: 550px;
+    display: inline-block;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--text-color);
+    color: var(--card-bg);
+    border-radius: var(--border-radius);
+    margin-top: 40px;
+}
+</style>
+
+<style>
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+}
+
+.menu-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.menu-icon a {
+    text-decoration: none;
+}
+
+.menu-icon div {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: all 0.3s;
+}
+
+.header {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header h1 {
+    font-size: 3rem;
+    color: #333;
+}
+
+.header p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+.contact-section {
+    background: white;
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+.contact-section h1 {
+    margin-bottom: 20px;
+    color: #019FE3;
+}
+
+.contact-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-container button {
+    width: 100%;
+    padding: 10px;
+    background: #019FE3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.contact-container button:hover {
+    background: #0166E2;
+}
+
+.linkedin-container {
+    text-align: center;
+    margin: 40px auto;
+}
+
+.linkedin-container img {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.linkedin-container img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.linkedin-container h3 {
+    font-size: 1.8rem;
+    color: #019FE3;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: white;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #aaa;
+}
+</style>
+
+<style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        /* Burger-Menü */
+        .menu-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .menu-icon div {
+            width: 30px;
+            height: 4px;
+            background-color: #333;
+            margin: 5px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* Intro-Bereich */
+        .intro {
+            text-align: center;
+            padding: 50px 20px;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .intro h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #019FE3;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #0176b3;
+        }
+
+        /* Skills */
+        .skills {
+            background: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .skill-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .skill-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
