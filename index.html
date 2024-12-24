@@ -19,16 +19,24 @@
         </a>
     </div>
 
-    <!-- Header-Bereich -->
-    <div class="header">
-        <h1>Hallo und willkommen</h1>
-        <p>Schön, dass du hier bist! Teste dein Wissen über mich und entdecke spannende Fakten!</p>
+   <!-- Intro-Bereich -->
+   <section class="intro">
+    <div class="intro-content">
+        <h1>Hey, ich bin <span class="highlight">Fabian Locher</span>! <span class="wave">👋</span></h1>
+        <p class="subtitle">Willkommen auf meiner Website</span></p>
+        <p class="description">
+            Ich bin Wirtschaftsinformatik-Student, Fantasy Football Champion, und passionierter Festivalgänger.
+            <br> <strong>2026</strong> schliesse ich mein Studium ab und bin bereit, in der <span class="highlight">IT-Welt</span> durchzustarten!
+        </p>
+        <a href="contact.html" class="cta-button">Kontakt aufnehmen</a>
     </div>
+</section>
 
     <!-- Quiz Inhalt -->
     <div class="content" id="quiz">
         <div class="quiz-container">
-            <h2>Wie gut kennst du mich?</h2>
+            <h2>Quiz-Zeit!</h2>
+            <h3>Wie viel weisst du über mich?</h3>
             <p id="quiz-question">Frage wird geladen...</p>
             <div class="quiz-options"></div>
         </div>
@@ -44,24 +52,24 @@
     <!-- Quiz Script -->
     <script>
         const questions = [
-            { question: "Welches ist Fabians Lieblingsteam im Fussball?", options: ["Borussia Dortmund", "FC Bayern München", "Real Madrid", "Liverpool"], correct: "FC Bayern München", explanation: "Fabian ist ein riesiger FC Bayern-Fan und verfolgt jedes Spiel." },
-            { question: "Was ist Fabians Lieblingsessen?", options: ["Pizza", "Sushi", "Döner", "Pasta"], correct: "Döner", explanation: "Fabian ist ein wahrer Döner-Experte. Mindestens 1 pro Woche wird diese Speise einverleibt." },
-            { question: "Welches ist Fabians Lieblingsanime?", options: ["Dragon Ball", "Attack on Titan", "Naruto", "One Piece"], correct: "One Piece", explanation: "One Piece bietet die perfekte Mischung aus Abenteuer und Humor, was Fabian liebt." },
-            { question: "Welche Serie schaut Fabian am liebsten?", options: ["Breaking Bad", "The Office", "Friends", "Game of Thrones"], correct: "The Office", explanation: "Die humorvolle Serie 'The Office' passt perfekt zu Fabians Humor." },
-            { question: "Welches war Fabians meistgespielter Spotify-Song 2024?", options: ["My Eyes - Travis Scott", "Flowers - Miley Cyrus", "Kill Bill - SZA", "Unholy - Sam Smith"], correct: "My Eyes - Travis Scott", explanation: "Travis Scott's 'My Eyes' hat einen einzigartigen Beat, der Fabian begeistert." },
-            { question: "Welches ist Fabians Lieblingsfilm?", options: ["Forrest Gump", "Inception", "The Dark Knight", "Interstellar"], correct: "Forrest Gump", explanation: "Fabian schätzt die emotionale Tiefe und die wahre Geschichte von 'Forrest Gump'." },
-            { question: "Welches ist Fabians Lieblingsgetränk?", options: ["Wasser", "El Tony Mate", "Cola", "Kaffee"], correct: "El Tony Mate", explanation: "Fabian ist ein großer Fan von El Tony Mate – der perfekte Drink für den ganzen Tag!" },
-            { question: "Was studiert Fabian?", options: ["Informatik", "BWL", "Wirtschaftsinformatik", "Maschinenbau"], correct: "Wirtschaftsinformatik", explanation: "Fabian kombiniert Wirtschaft und IT – der perfekte Mix für seine Karriere." },
-            { question: "Wo arbeitet Fabian?", options: ["SAP", "Google", "Radio neo1", "Nestlé"], correct: "Radio neo1", explanation: "Fabian arbeitet seit Jahren bei Radio neo1 und liebt es, kreative Werbemöglichkeiten zu entwickeln." },
-            { question: "In welchem Spiel hat Fabian die meisten Stunden?", options: ["League of Legends", "Counter-Strike", "Minecraft", "FIFA"], correct: "Counter-Strike", explanation: "Fabian ist ein leidenschaftlicher Counter-Strike-Spieler und kann Stunden in diesem Spiel verbringen." }
+            { question: "Welches ist Fabians Lieblingsteam im Fussball?", options: ["Borussia Dortmund", "FC Bayern München", "Real Madrid", "Liverpool"], correct: "FC Bayern München", },
+            { question: "Was ist Fabians Lieblingsessen?", options: ["Pizza", "Sushi", "Döner", "Pasta"], correct: "Döner",},
+            { question: "Welches ist Fabians Lieblingsanime?", options: ["Dragon Ball", "Attack on Titan", "Naruto", "One Piece"], correct: "One Piece",},
+            { question: "Welche Serie schaut Fabian am liebsten?", options: ["Breaking Bad", "The Office", "Friends", "Game of Thrones"], correct: "The Office", },
+            { question: "Welches war Fabians meistgespielter Spotify-Song 2024?", options: ["My Eyes - Travis Scott", "Flowers - Miley Cyrus", "Kill Bill - SZA", "Unholy - Sam Smith"], correct: "My Eyes - Travis Scott", },
+            { question: "Welches ist Fabians Lieblingsfilm?", options: ["Forrest Gump", "Inception", "The Dark Knight", "Interstellar"], correct: "Forrest Gump", },
+            { question: "Welches ist Fabians Lieblingsgetränk?", options: ["Wasser", "El Tony Mate", "Cola", "Kaffee"], correct: "El Tony Mate", },
+            { question: "Was studiert Fabian?", options: ["Informatik", "BWL", "Wirtschaftsinformatik", "Maschinenbau"], correct: "Wirtschaftsinformatik", },
+            { question: "Wo arbeitet Fabian?", options: ["SAP", "Google", "Radio neo1", "Nestlé"], correct: "Radio neo1", },
+            { question: "In welchem Spiel hat Fabian die meisten Stunden?", options: ["League of Legends", "Counter-Strike", "Minecraft", "FIFA"], correct: "Counter-Strike", },
         ];
 
         const gifs = {
-            perfect: "https://media.giphy.com/media/kHOts8xerNiFI6KdCO/giphy.gif",
-            good: "https://media.giphy.com/media/tIeCLkB8geYtW/giphy.gif",
-            average: "https://media.giphy.com/media/li9VMmjBDNWQcN1cih/giphy.gif",
-            bad: "https://media.giphy.com/media/IdId16rKA3v5jTKnOH/giphy.gif"
-        };
+            perfect: "https://media.giphy.com/media/kHOts8xerNiFI6KdCO/giphy.gif", // Tina Turner
+            good: "https://media.giphy.com/media/tIeCLkB8geYtW/giphy.gif",       // Shaun the Sheep
+            average: "https://media.giphy.com/media/li9VMmjBDNWQcN1cih/giphy.gif", // Boy thinking
+            bad: "https://media.giphy.com/media/IdId16rKA3v5jTKnOH/giphy.gif"   // Moodman
+};
 
         let currentQuestionIndex = 0;
         let score = 0;
@@ -94,28 +102,41 @@
         }
 
         function showResult() {
-            document.querySelector(".quiz-container").style.display = "none";
-            result.style.display = "block";
+    document.querySelector(".quiz-container").style.display = "none";
+    result.style.display = "block";
 
-            let message;
-            let gif;
-            if (score === questions.length) {
-                message = `Du hast alles richtig! 🎉`;
-                gif = gifs.perfect;
-            } else if (score >= Math.ceil(questions.length * 0.7)) {
-                message = `Starke Leistung! 👀`;
-                gif = gifs.good;
-            } else {
-                message = `Nicht schlecht, aber da geht noch was! 😉`;
-                gif = gifs.average;
-            }
+    let message;
+let gif;
+if (score === questions.length) {
+    message = `Du musst mein bester Freund sein! ${score} von ${questions.length} Punkten – entweder stalkst du mich heimlich, oder du bist einfach genial. 🎉`;
+    gif = gifs.perfect;
+} else if (score >= Math.ceil(questions.length * 0.7)) {
+    message = `Starke Leistung: ${score} von ${questions.length}. Du weisst echt einiges über mich – vielleicht ein bisschen zu viel? 👀`;
+    gif = gifs.good;
+} else if (score >= Math.ceil(questions.length * 0.4)) {
+    message = `Okay, ${score} von ${questions.length}. Ein solider Anfang, aber da geht noch was. Schau mal auf meine Website, da gibt’s Nachhilfe! 😉`;
+    gif = gifs.average;
+} else if (score > 0) {
+    message = `${score} von ${questions.length}? Na ja... Vielleicht bist du nur hier wegen des GIFs am Ende... Versuch’s nochmal – besser wird’s bestimmt.`;
+    gif = gifs.bad;
+} else {
+    message = `0 von ${questions.length}. Uff. Du weißt ja gar nichts über mich! DAS WAR SCHLECHT!!!! Geh sofort auf meine Website und mach das Quiz nochmal. Ich erwarte Fortschritte. 😤`;
+    gif = gifs.bad;
+}
 
-            result.innerHTML = `<h2>Ergebnis:</h2><p>${message}</p><img src="${gif}" alt="Ergebnis GIF">`;
+    result.innerHTML = `
+        <h2>Ergebnis:</h2>
+        <p>${message}</p>
+        <p>Du hast ${score} von ${questions.length} Punkten erreicht.</p>
+        <img src="${gif}" alt="Ergebnis GIF">
+        <button class="show-solutions-button" onclick="showSolutions()">Lösungen anzeigen</button>
+        <button class="retry-button" onclick="retryQuiz()">Quiz wiederholen</button>
+    `;
+}
 
             // Button, um die Lösungen anzuzeigen
             result.innerHTML += '<button class="show-solutions-button" onclick="showSolutions()">Lösungen anzeigen</button>';
-            result.innerHTML += '<button class="retry-button" onclick="retryQuiz()">Quiz wiederholen</button>';
-        }
+        result.innerHTML += '<button class="retry-button" onclick="retryQuiz()">Quiz wiederholen</button>';
 
         // Lösungen anzeigen
         function showSolutions() {
@@ -125,7 +146,6 @@
                     <li class="solution-item">
                         <strong>Frage:</strong> ${question.question} <br>
                         <strong>Richtige Antwort:</strong> ${question.correct} <br>
-                        <strong>Erklärung:</strong> ${question.explanation}
                     </li>`;
             });
             solutionsHtml += "</ul>";
