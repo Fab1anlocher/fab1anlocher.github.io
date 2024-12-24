@@ -6,140 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fabian Locher - Willkommen</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Raleway', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            color: #333;
-        }
-
-        .menu-icon {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-            z-index: 100;
-        }
-
-        .menu-icon a {
-            text-decoration: none;
-        }
-
-        .menu-icon div {
-            width: 30px;
-            height: 3px;
-            background-color: #333;
-            margin: 5px 0;
-            transition: all 0.3s;
-        }
-
-        .header {
-            text-align: center;
-            padding: 60px 20px;
-            background: white;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .header h1 {
-            font-size: 3rem;
-            color: #333;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            margin: 20px 0;
-        }
-
-        .content {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .quiz-container {
-            background: white;
-            padding: 30px;
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-        }
-
-        .quiz-container h2 {
-            margin-bottom: 20px;
-            color: #019FE3;
-        }
-
-        .quiz-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .quiz-option {
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .quiz-option:hover {
-            background: #019FE3;
-            color: white;
-            transform: scale(1.05);
-        }
-
-        .result {
-            display: none;
-            padding: 20px;
-            background: #019FE3;
-            color: white;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .result img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .retry-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #fff;
-            color: #019FE3;
-            border: 2px solid #019FE3;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-
-        .retry-button:hover {
-            background: #019FE3;
-            color: #fff;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #333;
-            color: white;
-        }
-
-        footer a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #aaa;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -154,14 +21,14 @@
 
     <!-- Header-Bereich -->
     <div class="header">
-        <h1>Willkommen bei Fabian Locher</h1>
-        <p>Teste dein Wissen über mich und entdecke neue Fakten! Starte das Quiz oder lies mehr über mich.</p>
+        <h1>Hallo und willkommen</h1>
+        <p>Schön, dass du hier bist! Teste dein Wissen über mich und entdecke spannende Fakten!</p>
     </div>
 
     <!-- Quiz Inhalt -->
     <div class="content" id="quiz">
         <div class="quiz-container">
-            <h2>Wie gut kennst du Fabian?</h2>
+            <h2>Wie gut kennst du mich?</h2>
             <p id="quiz-question">Frage wird geladen...</p>
             <div class="quiz-options"></div>
         </div>
@@ -174,27 +41,27 @@
         <p>© 2024 Fabian Locher. <a href="contact.html">Kontakt</a>.</p>
     </footer>
 
+    <!-- Quiz Script -->
     <script>
         const questions = [
-            { question: "Welches ist Fabians Lieblingsteam im Fußball?", options: ["Borussia Dortmund", "FC Bayern München", "Real Madrid", "Liverpool"], correct: "FC Bayern München" },
-            { question: "Was ist Fabians Lieblingsessen?", options: ["Pizza", "Sushi", "Döner", "Pasta"], correct: "Döner" },
-            { question: "Welches ist Fabians Lieblingsanime?", options: ["Dragon Ball", "Attack on Titan", "Naruto", "One Piece"], correct: "One Piece" },
-            { question: "Welche Serie schaut Fabian am liebsten?", options: ["Breaking Bad", "The Office", "Friends", "Game of Thrones"], correct: "The Office" },
-            { question: "Welches war Fabians meistgespielter Spotify-Song 2024?", options: ["My Eyes - Travis Scott", "Flowers - Miley Cyrus", "Kill Bill - SZA", "Unholy - Sam Smith"], correct: "My Eyes - Travis Scott" },
-            { question: "Welches ist Fabians Lieblingsfilm?", options: ["Forrest Gump", "Inception", "The Dark Knight", "Interstellar"], correct: "Forrest Gump" },
-            { question: "Welches ist Fabians Lieblingsgetränk?", options: ["Wasser", "El Tony Mate", "Cola", "Kaffee"], correct: "El Tony Mate" },
-            { question: "Was studiert Fabian?", options: ["Informatik", "BWL", "Wirtschaftsinformatik", "Maschinenbau"], correct: "Wirtschaftsinformatik" },
-            { question: "Wo arbeitet Fabian?", options: ["SAP", "Google", "Radio neo1", "Nestlé"], correct: "Radio neo1" },
-            { question: "In welchem Spiel hat Fabian die meisten Stunden?", options: ["League of Legends", "Counter-Strike", "Minecraft", "FIFA"], correct: "Counter-Strike" }
+            { question: "Welches ist Fabians Lieblingsteam im Fussball?", options: ["Borussia Dortmund", "FC Bayern München", "Real Madrid", "Liverpool"], correct: "FC Bayern München", explanation: "Fabian ist ein riesiger FC Bayern-Fan und verfolgt jedes Spiel." },
+            { question: "Was ist Fabians Lieblingsessen?", options: ["Pizza", "Sushi", "Döner", "Pasta"], correct: "Döner", explanation: "Fabian ist ein wahrer Döner-Experte. Mindestens 1 pro Woche wird diese Speise einverleibt." },
+            { question: "Welches ist Fabians Lieblingsanime?", options: ["Dragon Ball", "Attack on Titan", "Naruto", "One Piece"], correct: "One Piece", explanation: "One Piece bietet die perfekte Mischung aus Abenteuer und Humor, was Fabian liebt." },
+            { question: "Welche Serie schaut Fabian am liebsten?", options: ["Breaking Bad", "The Office", "Friends", "Game of Thrones"], correct: "The Office", explanation: "Die humorvolle Serie 'The Office' passt perfekt zu Fabians Humor." },
+            { question: "Welches war Fabians meistgespielter Spotify-Song 2024?", options: ["My Eyes - Travis Scott", "Flowers - Miley Cyrus", "Kill Bill - SZA", "Unholy - Sam Smith"], correct: "My Eyes - Travis Scott", explanation: "Travis Scott's 'My Eyes' hat einen einzigartigen Beat, der Fabian begeistert." },
+            { question: "Welches ist Fabians Lieblingsfilm?", options: ["Forrest Gump", "Inception", "The Dark Knight", "Interstellar"], correct: "Forrest Gump", explanation: "Fabian schätzt die emotionale Tiefe und die wahre Geschichte von 'Forrest Gump'." },
+            { question: "Welches ist Fabians Lieblingsgetränk?", options: ["Wasser", "El Tony Mate", "Cola", "Kaffee"], correct: "El Tony Mate", explanation: "Fabian ist ein großer Fan von El Tony Mate – der perfekte Drink für den ganzen Tag!" },
+            { question: "Was studiert Fabian?", options: ["Informatik", "BWL", "Wirtschaftsinformatik", "Maschinenbau"], correct: "Wirtschaftsinformatik", explanation: "Fabian kombiniert Wirtschaft und IT – der perfekte Mix für seine Karriere." },
+            { question: "Wo arbeitet Fabian?", options: ["SAP", "Google", "Radio neo1", "Nestlé"], correct: "Radio neo1", explanation: "Fabian arbeitet seit Jahren bei Radio neo1 und liebt es, kreative Werbemöglichkeiten zu entwickeln." },
+            { question: "In welchem Spiel hat Fabian die meisten Stunden?", options: ["League of Legends", "Counter-Strike", "Minecraft", "FIFA"], correct: "Counter-Strike", explanation: "Fabian ist ein leidenschaftlicher Counter-Strike-Spieler und kann Stunden in diesem Spiel verbringen." }
         ];
 
         const gifs = {
-            perfect: "https://media.giphy.com/media/kHOts8xerNiFI6KdCO/giphy.gif", // Tina Turner
-            good: "https://media.giphy.com/media/tIeCLkB8geYtW/giphy.gif",       // Shaun the Sheep
-            average: "https://media.giphy.com/media/li9VMmjBDNWQcN1cih/giphy.gif", // Boy thinking
-            bad: "https://media.giphy.com/media/IdId16rKA3v5jTKnOH/giphy.gif"   // Moodman
-};
-
+            perfect: "https://media.giphy.com/media/kHOts8xerNiFI6KdCO/giphy.gif",
+            good: "https://media.giphy.com/media/tIeCLkB8geYtW/giphy.gif",
+            average: "https://media.giphy.com/media/li9VMmjBDNWQcN1cih/giphy.gif",
+            bad: "https://media.giphy.com/media/IdId16rKA3v5jTKnOH/giphy.gif"
+        };
 
         let currentQuestionIndex = 0;
         let score = 0;
@@ -230,28 +97,40 @@
             document.querySelector(".quiz-container").style.display = "none";
             result.style.display = "block";
 
-let message;
-let gif;
-if (score === questions.length) {
-    message = `Du musst mein bester Freund sein! ${score} von ${questions.length} Punkten – entweder stalkst du mich heimlich, oder du bist einfach genial. 🎉`;
-    gif = gifs.perfect;
-} else if (score >= Math.ceil(questions.length * 0.7)) {
-    message = `Starke Leistung: ${score} von ${questions.length}. Du weisst echt einiges über mich – vielleicht ein bisschen zu viel? 👀`;
-    gif = gifs.good;
-} else if (score >= Math.ceil(questions.length * 0.4)) {
-    message = `Okay, ${score} von ${questions.length}. Ein solider Anfang, aber da geht noch was. Schau mal auf meine Website, da gibt’s Nachhilfe! 😉`;
-    gif = gifs.average;
-} else if (score > 0) {
-    message = `${score} von ${questions.length}? Na ja... Vielleicht bist du nur hier wegen des GIFs am Ende... Versuch’s nochmal – besser wird’s bestimmt.`;
-    gif = gifs.bad;
-} else {
-    message = `0 von ${questions.length}. Uff. Du weißt ja gar nichts über mich! DAS WAR SCHLECHT!!!! Geh sofort auf meine Website und mach das Quiz nochmal. Ich erwarte Fortschritte. 😤`;
-    gif = gifs.bad;
-}
+            let message;
+            let gif;
+            if (score === questions.length) {
+                message = `Du hast alles richtig! 🎉`;
+                gif = gifs.perfect;
+            } else if (score >= Math.ceil(questions.length * 0.7)) {
+                message = `Starke Leistung! 👀`;
+                gif = gifs.good;
+            } else {
+                message = `Nicht schlecht, aber da geht noch was! 😉`;
+                gif = gifs.average;
+            }
 
+            result.innerHTML = `<h2>Ergebnis:</h2><p>${message}</p><img src="${gif}" alt="Ergebnis GIF">`;
 
+            // Button, um die Lösungen anzuzeigen
+            result.innerHTML += '<button class="show-solutions-button" onclick="showSolutions()">Lösungen anzeigen</button>';
+            result.innerHTML += '<button class="retry-button" onclick="retryQuiz()">Quiz wiederholen</button>';
+        }
 
-            result.innerHTML = `<h2>Ergebnis:</h2><p>${message}</p><img src="${gif}" alt="Ergebnis GIF"><button class="retry-button" onclick="retryQuiz()">Quiz wiederholen</button>`;
+        // Lösungen anzeigen
+        function showSolutions() {
+            let solutionsHtml = "<h3>Richtige Antworten und Erklärungen:</h3><ul>";
+            questions.forEach((question, index) => {
+                solutionsHtml += `
+                    <li class="solution-item">
+                        <strong>Frage:</strong> ${question.question} <br>
+                        <strong>Richtige Antwort:</strong> ${question.correct} <br>
+                        <strong>Erklärung:</strong> ${question.explanation}
+                    </li>`;
+            });
+            solutionsHtml += "</ul>";
+
+            document.getElementById("result").innerHTML += solutionsHtml; // Lösungen und Erklärungen hinzufügen
         }
 
         function retryQuiz() {
