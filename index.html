@@ -69,10 +69,11 @@
             good: "https://media.giphy.com/media/tIeCLkB8geYtW/giphy.gif",       // Shaun the Sheep
             average: "https://media.giphy.com/media/li9VMmjBDNWQcN1cih/giphy.gif", // Boy thinking
             bad: "https://media.giphy.com/media/IdId16rKA3v5jTKnOH/giphy.gif"   // Moodman
-};
+        };
 
         let currentQuestionIndex = 0;
         let score = 0;
+        let answers = []; // Für die Speicherung der Antworten
 
         const quizQuestion = document.getElementById("quiz-question");
         const quizOptions = document.querySelector(".quiz-options");
@@ -90,9 +91,13 @@
         }
 
         function handleAnswer(e, currentQuestion) {
-            if (e.target.textContent === currentQuestion.correct) {
+            const selectedAnswer = e.target.textContent;
+            answers.push({ question: currentQuestion.question, selected: selectedAnswer, correct: currentQuestion.correct });
+
+            if (selectedAnswer === currentQuestion.correct) {
                 score++;
             }
+
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.length) {
                 loadQuestion();
@@ -102,60 +107,58 @@
         }
 
         function showResult() {
-    document.querySelector(".quiz-container").style.display = "none";
-    result.style.display = "block";
+            document.querySelector(".quiz-container").style.display = "none";
+            result.style.display = "block";
 
-    let message;
-let gif;
-if (score === questions.length) {
-    message = `Du musst mein bester Freund sein! ${score} von ${questions.length} Punkten – entweder stalkst du mich heimlich, oder du bist einfach genial. 🎉`;
-    gif = gifs.perfect;
-} else if (score >= Math.ceil(questions.length * 0.7)) {
-    message = `Starke Leistung: ${score} von ${questions.length}. Du weisst echt einiges über mich – vielleicht ein bisschen zu viel? 👀`;
-    gif = gifs.good;
-} else if (score >= Math.ceil(questions.length * 0.4)) {
-    message = `Okay, ${score} von ${questions.length}. Ein solider Anfang, aber da geht noch was. Schau mal auf meine Website, da gibt’s Nachhilfe! 😉`;
-    gif = gifs.average;
-} else if (score > 0) {
-    message = `${score} von ${questions.length}? Na ja... Vielleicht bist du nur hier wegen des GIFs am Ende... Versuch’s nochmal – besser wird’s bestimmt.`;
-    gif = gifs.bad;
-} else {
-    message = `0 von ${questions.length}. Uff. Du weißt ja gar nichts über mich! DAS WAR SCHLECHT!!!! Geh sofort auf meine Website und mach das Quiz nochmal. Ich erwarte Fortschritte. 😤`;
-    gif = gifs.bad;
-}
+            let message;
+            let gif;
+            if (score === questions.length) {
+                message = `Du musst mein bester Freund sein! ${score} von ${questions.length} Punkten – entweder stalkst du mich heimlich, oder du bist einfach genial. 🎉`;
+                gif = gifs.perfect;
+            } else if (score >= Math.ceil(questions.length * 0.7)) {
+                message = `Starke Leistung: ${score} von ${questions.length}. Du weisst echt einiges über mich – vielleicht ein bisschen zu viel? 👀`;
+                gif = gifs.good;
+            } else if (score >= Math.ceil(questions.length * 0.4)) {
+                message = `Okay, ${score} von ${questions.length}. Ein solider Anfang, aber da geht noch was. Schau mal auf meine Website, da gibt’s Nachhilfe! 😉`;
+                gif = gifs.average;
+            } else if (score > 0) {
+                message = `${score} von ${questions.length}? Na ja... Vielleicht bist du nur hier wegen des GIFs am Ende... Versuch’s nochmal – besser wird’s bestimmt.`;
+                gif = gifs.bad;
+            } else {
+                message = `0 von ${questions.length}. Uff. Du weißt ja gar nichts über mich! DAS WAR SCHLECHT!!!! Geh sofort auf meine Website und mach das Quiz nochmal. Ich erwarte Fortschritte. 😤`;
+                gif = gifs.bad;
+            }
 
-    result.innerHTML = `
-        <h2>Ergebnis:</h2>
-        <p>${message}</p>
-        <p>Du hast ${score} von ${questions.length} Punkten erreicht.</p>
-        <img src="${gif}" alt="Ergebnis GIF">
-        <button class="show-solutions-button" onclick="showSolutions()">Lösungen anzeigen</button>
-        <button class="retry-button" onclick="retryQuiz()">Quiz wiederholen</button>
-    `;
-}
+            result.innerHTML = `
+                <h2>Ergebnis:</h2>
+                <p>${message}</p>
+                <p>Du hast ${score} von ${questions.length} Punkten erreicht.</p>
+                <img src="${gif}" alt="Ergebnis GIF">
+                <button class="show-solutions-button" onclick="showSolutions()">Lösungen anzeigen</button>
+                <button class="retry-button" onclick="retryQuiz()">Quiz wiederholen</button>
+            `;
+        }
 
-            // Button, um die Lösungen anzuzeigen
-            result.innerHTML += '<button class="show-solutions-button" onclick="showSolutions()">Lösungen anzeigen</button>';
-        result.innerHTML += '<button class="retry-button" onclick="retryQuiz()">Quiz wiederholen</button>';
-
-        // Lösungen anzeigen
         function showSolutions() {
-            let solutionsHtml = "<h3>Richtige Antworten und Erklärungen:</h3><ul>";
-            questions.forEach((question, index) => {
+            let solutionsHtml = "<h3>Lösungen:</h3><ul>";
+            answers.forEach(answer => {
+                const isCorrect = answer.selected === answer.correct;
                 solutionsHtml += `
-                    <li class="solution-item">
-                        <strong>Frage:</strong> ${question.question} <br>
-                        <strong>Richtige Antwort:</strong> ${question.correct} <br>
+                    <li class="solution-item" style="color: ${isCorrect ? 'green' : 'red'};">
+                        <strong>Frage:</strong> ${answer.question} <br>
+                        <strong>Deine Antwort:</strong> <span style="color: ${isCorrect ? 'green' : 'red'};">${answer.selected}</span> <br>
+                        <strong>Richtige Antwort:</strong> ${answer.correct} <br>
                     </li>`;
             });
             solutionsHtml += "</ul>";
 
-            document.getElementById("result").innerHTML += solutionsHtml; // Lösungen und Erklärungen hinzufügen
+            document.getElementById("result").innerHTML += solutionsHtml;
         }
 
         function retryQuiz() {
             currentQuestionIndex = 0;
             score = 0;
+            answers = [];
             result.style.display = "none";
             document.querySelector(".quiz-container").style.display = "block";
             loadQuestion();
@@ -165,4 +168,3 @@ if (score === questions.length) {
     </script>
 </body>
 
-</html>
